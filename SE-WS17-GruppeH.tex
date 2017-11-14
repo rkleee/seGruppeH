@@ -1,0 +1,352 @@
+\documentclass[a4paper, 10pt]{scrreprt}
+
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+
+
+
+
+\usepackage{hyperref}
+
+
+
+\newcommand{\scenario}[5]{
+\begin{description}
+\item [\uppercase{Initial assumption}:]\textit{#1}
+  \item [\uppercase{Normal}:] \textit{#2}
+  \item [\uppercase{What can go wrong}:] \textit{#3}
+  \item [\uppercase{Other Activities}:] \textit{#4}
+  \item [\uppercase{System State on Completion}:] \textit{#5}
+\end{description}
+}
+
+
+
+\newcounter{UReqCounter}
+\newcommand{\ureq}[2]{%
+  \vspace{0.5em}%
+  \stepcounter{UReqCounter}\noindent%
+  \textbf{U-REQ \arabic{UReqCounter}:} #1 \textit{Priority: #2}
+}
+
+\newcounter{FReqCounter}
+
+\newcommand{\freq}[2]{%
+  \vspace{0.5em}%
+  \stepcounter{FReqCounter}\noindent%
+  \textbf{F-REQ \arabic{FReqCounter}:} #1 \textit{Priority: #2}
+}
+
+\newcounter{NFReqCounter}
+
+\newcommand{\nfreq}[2]{%
+  \vspace{0.5em}%
+  \stepcounter{NFReqCounter}\noindent%
+  \textbf{NF-REQ \arabic{NFReqCounter}:} #1 \textit{Priority: #2}
+}
+
+
+
+
+
+\setcounter{secnumdepth}{5}
+
+\setcounter{tocdepth}{10}
+
+
+
+%Glossaries
+
+\usepackage{glossaries}
+\usepackage{glossaries-extra}
+
+\makenoidxglossaries
+
+%TODO Glossar - beständig ergänzen
+
+%FIXME
+
+\newcommand{\glx}[1]{#1 \gls{#1}}
+
+\newglossaryentry{Admin}{name={Admin},description={
+Der Admin (-istrator) in diesem Dokument ist der Leiter und Verwalter von \gls{Experiment}en.}}
+
+\newglossaryentry{Experiment}{name={Experiment},description={
+Das Experiment ist der Vorgang in dem \gls{Client}s eine \gls{Frage} beantworten, darüber diskutieren, evtl. ihre Antworten ändern und alles vom Admin ausgewertet wird.} }
+
+\newglossaryentry{Frage}{name={Frage},description={
+Die Frage ist die Grundlage eines jeden \gls{Experiment}s.}}
+                                                                                   
+\newglossaryentry{Client}{name={Client},description={
+Clients sind die Personen, die als ProbandInnen an \gls{Experiment}en teilnehmen. Die Clients entsprechen den Benutzern.
+Das sind die Personen, die sich registrieren, \gls{Frage}n beantworten und diskutieren.}}
+
+\newglossaryentry{Gruppe}{name={Gruppe},description={
+Die Gruppe ist eine Einteilung von Clients nach verschiedenen Charakteristika.}}
+
+\newglossaryentry{Charakteristik}{name={Charakteristik},description={
+Charakteristika entsprechen den vom Client angegebenen Profil-Informationen.}}
+
+\newglossaryentry{Diskussion}{name={Diskussion},description={
+Diskussionen sind der Austausch zwischen Clients, anhand derer eine eventuelle Beeinflussung gemessen werden kann.}}
+
+\newglossaryentry{Aktivitaetsscore}{name={Aktivitätsscore},description={
+Der Aktivitätsscore soll die Maßeinheit sein, in der eine eventuelle Beeinflussung von Clients gemessen wird.}}
+
+\newglossaryentry{Chat}{name={Chat},description={
+Der Chat ist ein sogenanntes Instant-Messaging-Programm wie z.B. WhatsApp.
+Über den Chat werden die Diskussionen geführt.}}
+%\documentclass[a4paper,10pt]{article}
+
+
+
+
+
+\newglossaryentry{Chatverbindung}{name={Chatverbindung},description={
+Die Chatverbindung ist die Kommunikationserlaubnis zwischen zwei Clients.}}
+
+
+% Document information
+
+\title{Lastenheft}
+
+\author{author1 \and author2 \and author3 \and author4}
+
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+
+
+\tableofcontents
+
+
+\begin{abstract}
+ 
+Es soll eine datenbankbasierte Android-App entwickelt werden, 
+mit deren Hilfe man analysiert, inwiefern Netzwerk-Topologien individuelle Entscheidungen von sog. Clients beeinflussen. 
+Ein Client ist ein Teilnehmer bzw. Benutzer der App, der bestimmte Fragen beantwortet und Diskussionen mit anderen Clients führt. 
+Diskussionen zwischen Clients sind Chats, über die z.B. auch Bilder oder anderes Informationsmaterial ausgetauscht werden kann. 
+Die andere Gruppe von Benutzern sind die Personen, die diese Experimente durchführen (Admins). 
+Diese sollen dazu in der Lage sein, die zu beantwortenden Fragen zu definieren und diese für bestimmte Clientgruppen freizugeben. 
+Die Freigabe soll dabei für Clients mit bestimmten Merkmalen erfolgen können (z.B. für alle Clients mit Kindern zwischen 20 und 30 Jahren). 
+Zur anschließenden Analyse soll ein filterbarer Datenexport bereitgestellt werden.
+
+\end{abstract}
+
+
+%\chapter{Introduction}
+
+%FIXME Entweder Intro oder Abstract
+
+
+
+
+
+
+
+%\section{Glossar}
+
+\printnoidxglossary[sort=word]
+
+%Ungenutzte Einträge funktioniert leider noch nicht.
+
+%\printunsrtglossaries
+
+
+\part{User Requirements}
+
+2. Versuch die ganzen Sachen zu vereinzeln und dabei die Sachen, die in der Beschreibung nicht vorkamen raus zu lassen.
+
+
+\section{Rollen}
+
+\subsection{AdministratorIn}
+
+\ureq{Es soll einen Zugang für Personen, die mit der App \gls{Experiment}e durchführen, geben. Dieser wird als \gls{Admin} bezeichnet.}{A}
+
+\ureq{Ein Admin soll \gls{Chatverbindung}en zwischen \gls{Client}s hinzufügen und löschen können.}{A}
+
+\ureq{Ein Admin soll eigene \gls{Frage}n erstellen, bearbeiten, löschen, für Clients freigeben, für Clients beenden und auswerten können.}{A}
+
+\ureq{Ein Admin soll anderen Admins eine Berechtigung für seine eigenen Fragen vergeben/entfernen können.}{B}
+
+\ureq{Diese Berechtigung umfasst alle administrativen Operationsmöglichkeiten (siehe Punkt 3) des ursprünglichen Eigentümers.}{B}
+
+
+
+
+
+\subsection{Client}
+
+\ureq{Es soll einen Zugang für Personen geben, die als ProbandInnen an Experimenten teilnehmen möchten. Dieser wird als \gls{Client} bezeichnet.}{A}
+
+\ureq{Im Zuge der Registrierung der Clients soll es eine Profil-Seite mit (tw. Pflicht-) Angaben zu \gls{Charakteristik}a geben.}{A}      
+
+\ureq{Anhang dieser Charakteristika soll eine im Hintergrund ablaufende Zuordnung zu \gls{Gruppe}n stattfinden.}{A}
+
+\ureq{Clients sollen sich dazu entscheiden können, an \gls{Frage}n teilzunehmen.}{A}
+
+\ureq{Es soll eine \gls{Chat}funktion für die Kommunikation zwischen zwei Clients geben.}{A}
+
+\ureq{Die Chatfunktion soll nur mit freigegebenen Clients nutzbar sein.}{B} 
+
+\ureq{Anhand der abgeschlossenen Experimente und der \gls{Diskussion}en eines jeden Clients soll im Hintergrund ein \gls{Aktivitaetsscore} errechnet werden.}{B}
+
+\ureq{Ein Client soll nur seinen eigenen Aktivitätsscore sehen können.}{C}
+
+
+
+\section{Experimente/Fragen}
+
+\ureq{Zu jedem Experiment soll genau eine Frage gehören.}{A}
+
+\ureq{Zu jedem Experiment soll es zeitliche Paramenter geben, wie das vorgesehene Ende des Experiments.}{A}
+
+\ureq{Fragen sollen nur einer \gls{Gruppe} angeboten werden können.}{B}
+
+\ureq{Es sollen Fragen mit verschiedenen auswertbaren Antworttypen (Ja/Nein, Multiple Choice, Bewertung nach Punktesystem bzw. Zahl) möglich sein.}{A}
+
+\ureq{Zu jedem Experiment soll es (vom Admin zugefügte) Informationsmaterialien geben, die den Clients direkt oder als Download zur Verfügung stehen.}{A}
+
+
+
+
+\section{Chat}
+
+\ureq{Der \gls{Chat} soll (Text-)Nachrichten in Echtzeit übermitteln.}{A}
+
+\ureq{Der Chat soll auch Bilder und Dokumente übermitteln}{B}
+
+\ureq{Der Chat soll auch Videos, Audio-Formate und Sprachnachrichten übermitteln.}{C}
+
+\ureq{Es soll eine Funktion für Admins geben, die \gls{Chatverbindung}en zwischen Clients erstellt (Eingabe: Zur Frage angemeldete Clients, deren Charakteristika, sowie die (feste/maximale/flexible) Anzahl der Chatverbindungen pro Client)}{A}
+
+
+
+\section{Aktivitätsscore}
+
+\ureq{Jeder Client soll einen eigenen Aktivitätsscore haben.}{A}
+
+\ureq{Der Aktivitätsscore soll für Admins auswertbar sein.}{A}
+
+\ureq{Der Aktivitätsscore soll anhand folgender Informationen systemseitig errechnet werden: Anzahl \gls{Diskussion}en, Anzahl beantworteter Fragen und Qualität der Antworten.}{A}
+
+
+
+\section{Datenspeicherung und -verarbeitung}
+
+\ureq{Die erfassten Daten sollen anonymisiert gespeichert werden.}{B}
+
+\ureq{Der Zugriff auf die Datenbank soll auf Admins beschränkt sein.}{B}
+
+%FIXME Korrekten Befehl für Glossareinträge, die anders geschrieben werden als im Glossar benutzen.
+\ureq{Die Datenbank soll über Filter verfügen, damit die Daten einzelner \gls{Experiment}e getrennt abgerufen werden können.}{B}
+
+\ureq{Es soll eine Möglichkeit zum Datenexport geben, um die Daten (mit externen Programmen) auswerten zu können.}{C}
+
+
+
+
+%bis hier entfernen für Endversion
+
+\part{System Requirements}
+
+\chapter{Non-Functional Requirements}
+
+To enter a non-functional requirement, simply use:
+\begin{verbatim}
+  \nfreq{text}{priority}
+\end{verbatim}
+
+
+
+\section{Product Requirements}
+
+\section{Usability Requirements}
+
+\section{Efficiency Requirements}
+
+\section{Performance Requirements}
+
+
+\chapter{Functional Requirements}
+
+To enter a functional requirement, simply use:
+\begin{verbatim}
+  \freq{text}{priority}
+\end{verbatim}
+
+
+\part{Scenarios}
+
+\section{Scenario for collecting medical history}
+
+To enter a scenario, simply use:
+
+\begin{verbatim}
+  \scenario{initial assumption}
+{normal}
+{what can go wrong}
+{other activities}
+{system state on completion}
+\end{verbatim}
+
+For example
+
+\begin{verbatim}
+  \scenario{The patient has...}
+{\begin{itemize} 
+  \item The nurse searches...
+\end{itemize}}
+{\begin{itemize}
+    \item The patientâ€™s...
+\end{itemize}}
+{Record may be...}
+{User is logged...}  
+\end{verbatim}
+
+produces:
+
+\scenario{The patient has seen a medical receptionist who has created
+  a record in the system and collected the patientâ€™s personal
+  information (name, address, age, etc.). A nurse is logged on to the
+  system and is collecting medical history.}
+{\begin{itemize} 
+  \item The nurse searches for the patient by family name. If there is
+    more than one patient with the same surname, the given name (first
+    name in English) and date of birth are used to identify the
+    patient.
+  \item The nurse chooses the menu option to add medical history.
+  \item The nurse then follows a series of prompts from the system to
+    enter information about consultations elsewhere on mental health
+    problems (free text input), existing medical conditions (nurse
+    selects conditions from menu), medication currently taken
+    (selected from menu), allergies (free text), and home life
+    (form). 
+  \end{itemize}}
+{\begin{itemize}
+    \item The patientâ€™s record does not exist or cannot be found. The nurse should create a new record and record personal information. 
+    \item Patient conditions or medication are not entered in the
+      menu. The nurse should choose the â€˜otherâ€™ option and enter free
+      text describing the condition/medication.
+    \item Patient cannot/will not provide information on medical
+      history. The nurse should enter free text recording the
+      patientâ€™s inability/unwillingness to provide information. The
+      system should print the standard exclusion form stating that the
+      lack of information may mean that treatment will be limited or
+      delayed. This should be signed and handed to the patient.
+    \end{itemize}}
+{Record may be consulted but not edited by other staff
+  while information is being entered.}
+{User is logged on. The patient record including medical history is
+  entered in the database.}  
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
