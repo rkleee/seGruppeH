@@ -13,11 +13,11 @@
 
 \newcommand{\scenario}[5]{
 \begin{description}
-\item [\uppercase{Initial assumption}:]\textit{#1}
+\item [\uppercase{Initiale Situation}:]\textit{#1}
   \item [\uppercase{Normal}:] \textit{#2}
-  \item [\uppercase{What can go wrong}:] \textit{#3}
-  \item [\uppercase{Other Activities}:] \textit{#4}
-  \item [\uppercase{System State on Completion}:] \textit{#5}
+  \item [\uppercase{Was schief gehen kann}:] \textit{#3}
+  \item [\uppercase{Andere Aktivitäten}:] \textit{#4}
+  \item [\uppercase{Zustand des Systems bei Erfolg}:] \textit{#5}
 \end{description}
 }
 
@@ -306,11 +306,27 @@ To enter a functional requirement, simply use:
 \end{verbatim}
 
 
-\part{Scenarios}
+\part{Szenarios}
 
-\section{Scenario for collecting medical history}
+\section{Szenario für die Erstellung eines Experiments}
 
-To enter a scenario, simply use:
+\scenario{Ein Admin möchte ein \gls{Experiment} erstellen: Wie lange muss ein verurteilter Täter in Haft? Dazu lädt er eine PDF-Datei mit Informationen zum Tathergang und dem Urteil hoch und ordnet eine \gls{Gruppe} dieser Frage zu.}
+{\begin{itemize} 
+  \item Der Admin benutzt das Experiment-Erstellungs-Interface und gibt die Frage, die Antwortmöglichkeit als Kommazahl und eine Fragebeschreibung (z.B. Bitte zugeordnetes PDF beachten. Kommazahlen als Antwort sind erlaubt.) ein.
+  \item Der Admin gibt außerdem einen Zeitraum für das Experiment, sowie die Dauer für Clients, eine Antwort abgeben zu können, an.
+  \item Der Admin lädt das Info-PDF hoch.
+  \item Der Admin sucht eine Gruppe aus und ordnet diese zu. (z.B. Jura-Studenten)
+  \end{itemize}}
+{\begin{itemize}
+    \item Die Eingaben (Fragetext und Fragebeschreibung) könnten zu lang sein.
+    \item Das PDF könnte zu groß oder im falschen Format sein.
+    \item ...
+    \end{itemize}}
+{Eingabefelder in ihrer Länge beschränken. Checks einbauen, die das PDF auf Größe (z.B. <5 MB) und auf das Format prüfen.}
+{User ist eingeloggt. Die Frage ist erstellt und wird mit PDF und allen weiteren vom Admin eingegebenen Infos den ausgewählten Clients zur Teilahme bereitgestellt.}  
+
+
+Erklärung der Vorlage:
 
 \begin{verbatim}
   \scenario{initial assumption}
