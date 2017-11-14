@@ -70,17 +70,17 @@
 \newcommand{\glx}[1]{#1 \gls{#1}}
 
 \newglossaryentry{Admin}{name={Admin},description={
-Der Admin (-istrator) in diesem Dokument ist der Leiter und Verwalter von \gls{Experiment}en.}}
+Der Admin (-istrator) in diesem Dokument ist der Leiter und Verwalter von Experimenten.}}
 
 \newglossaryentry{Experiment}{name={Experiment},description={
-Das Experiment ist der Vorgang in dem \gls{Client}s eine \gls{Frage} beantworten, darüber diskutieren, evtl. ihre Antworten ändern und alles vom Admin ausgewertet wird.} }
+Das Experiment ist der Vorgang in dem Clients eine Frage beantworten, darüber diskutieren, evtl. ihre Antworten ändern und alles vom Admin ausgewertet wird.} }
 
 \newglossaryentry{Frage}{name={Frage},description={
-Die Frage ist die Grundlage eines jeden \gls{Experiment}s.}}
+Die Frage ist die Grundlage eines jeden Experiments.}}
                                                                                    
 \newglossaryentry{Client}{name={Client},description={
-Clients sind die Personen, die als ProbandInnen an \gls{Experiment}en teilnehmen. Die Clients entsprechen den Benutzern.
-Das sind die Personen, die sich registrieren, \gls{Frage}n beantworten und diskutieren.}}
+Clients sind die Personen, die als ProbandInnen an Experimenten teilnehmen. Die Clients entsprechen den Benutzern.
+Das sind die Personen, die sich registrieren, Fragen beantworten und diskutieren.}}
 
 \newglossaryentry{Gruppe}{name={Gruppe},description={
 Die Gruppe ist eine Einteilung von Clients nach verschiedenen Charakteristika.}}
@@ -97,11 +97,6 @@ Der Aktivitätsscore soll die Maßeinheit sein, in der eine eventuelle Beeinflus
 \newglossaryentry{Chat}{name={Chat},description={
 Der Chat ist ein sogenanntes Instant-Messaging-Programm wie z.B. WhatsApp.
 Über den Chat werden die Diskussionen geführt.}}
-%\documentclass[a4paper,10pt]{article}
-
-
-
-
 
 \newglossaryentry{Chatverbindung}{name={Chatverbindung},description={
 Die Chatverbindung ist die Kommunikationserlaubnis zwischen zwei Clients.}}
@@ -111,14 +106,14 @@ Die Chatverbindung ist die Kommunikationserlaubnis zwischen zwei Clients.}}
 
 \title{Lastenheft}
 
-\author{author1 \and author2 \and author3 \and author4}
+% \author{Jaqueline K. \and Nicole W. \and Rebecca K. \and Lucas B.}
+\author{Gruppe H}
 
 \date{\today}
 
 
 \begin{document}
 \maketitle
-
 
 
 \tableofcontents
@@ -145,6 +140,38 @@ Zur anschließenden Analyse soll ein filterbarer Datenexport bereitgestellt werd
 
 
 
+\chapter{Introduction}
+
+\section{(Initial) Problem Statement for the Mobile Decision Lab}
+The purpose of the system is to have a mobile lab for experiments concerning groups decisions based on different network topologies. The outcome of experiments shall help understand how network structures impact group decisions. The networks are anonymous connections between participants with the possibility to exchange messages between connected participants.
+
+Networks can be constructed, for instance, scale-free or not, or with certain dimensionalities (everyone has exactly one neighbor, exactly two neighbors, etc.) and in a way that they additionally fulfill certain constraints (e.g., a connection between two participants {\em can only exist} if they share some properties, e.g., they are about the same age or have about the same expertise about the subject matter, or such a connection {\em cannot exist} if certain properties hold, e.g., neighbors have to be in different age groups or they are not allowed to have the same level of expertise).
+
+The message format can be plain text or more structured, like an integer, or an enumeration type (like ``up'' or ``down'' or a chess move or a (legal) sentence like ``guilty'' or ```not guilty''').
+
+There are two types of users of the systems: experimenters (admins) or participants (test persons, subjects). Experimenters define the experiments along with all parameters and constraints. Participants can register and decide whether they want to participate in a given experiment. Before the start of the experiment, participants have to answer a few questions related to the task they should solve. (If no such information is requested by the experimenter in the definition of the experiment, this step can be omitted. Answers to these questions are treated confidentially, as all the other information that is entered by participants of the experiments.) Once the experiment has started, they are provided with a task description, which is the problem to be solved and for which a decision has to be reached towards the end of the ``game'' (i.e., has to be entered by each participant individually), and some supporting information (for instance, some paragraphs of law text for legal problems, or a hint on which supporting information they are allowed to use, e.g., some news website or wikipedia articles).
+
+During one round of deliberation, participants can exchange messages with their (anonymous) neighbors about the problem to be solved, according to their own pace, until the predefined time of the experiment is up or the experimenter decides to close the experiments manually. 
+
+When the time of deliberation has ended, each user is asked to decide about the question he or she was asked to answer in the beginning. The answer will be of a predefined format (not free text).
+
+The nature of the experiment should be such that a ``true'' outcome is known already, but hard or impossible to access by participants (like a known sentence for a known case in the legal setting), or will be known shortly in the future (like the outcome of a football game or a chess move by a professional chess player in a certain game or the loss or gain of a stock on the stock market on the next day).
+
+At the end of the experiment, the outcome of the decision (for instance, the fraction of participants choosing ``guilty'' or ``not guilty'' or the fraction predicting the win or loss of a forthcoming football game) can be communicated to the participants, if the experimenter has chosen this option up-front in the definition of the experiment.
+
+All the results, the individual decisions and the group decisions are stored in a database in anonymized form for future analysis.
+
+An experiment can be defined in a way that it is repeated with the same group of people and the same or, alternatively, a different network topology for a specified number of times. These are parameters specified by the experimenter up-front, before the experiment has started.
+
+The outcome that was known already, but hard to access, or that is only known shortly after the experiment has ended, can also be communicated to the participants, if the experimenter wishes to do so.
+
+\subsection{Experimenter Perspective}
+The experimenter (also known as the admin) can define an experiment (for details see above) and access the results. When the experiment is defined, the questions to be answered by the participants can be specified, the task description, the supporting information, parameters specifying the network type, parameters regarding the repetition of experiments, and the duration of the experiment (predefined or stopped manually). 
+
+In the first step, the questions to be asked are defined (e.g., ``Are you older than 40?''). The answers serve as background information on the participants, but can also be used as constraints in the automatic and randomized construction of the network. For example, everyone could be connected only to people who are older or younger. Once the network is constructed, a decision problem is sent to the users (along with some material that may help in the decision). The admin can set a time frame for the deliberation or stop the experiment manually at any time. After the time is up or the experiment is stopped manually, and the decisions are entered by all participants, the experimenter has access to the outcomes in anonymized form.
+
+\subsection{Participant Perspective}
+The participant can sign up for the mobile decision lab in an android app. He/she may select an experiment to participate in. The participant then has to answer some preliminary questions. After that the participant is presented with a decision problem along with additional material. The participant studies the material and exchanges information and opinions with other participants he/she is connected to in the participant network. Information exchange only happens between two participants at a time. The message format may be different from experiment to experiment. In the simplest case, it is just plain text. After some time of deliberation (discussion of neighboring participants by exchanging messages), the participant is asked to make a final decision. After the decision is made, the participant may get some feedback on her answer depending on the experiment setup (the experiment could also be set up in a way that the participant does not receive feedback). Depending on the user's participation in the experiment, he/she may receive a number of points after each question. The participant can compare his/her performance with other participants on a global leader board. This scoring system is optional and may be chosen by the experimenter in the specification of the experiment.
 
 
 
@@ -158,8 +185,6 @@ Zur anschließenden Analyse soll ein filterbarer Datenexport bereitgestellt werd
 
 
 \part{User Requirements}
-
-2. Versuch die ganzen Sachen zu vereinzeln und dabei die Sachen, die in der Beschreibung nicht vorkamen raus zu lassen.
 
 
 \section{Rollen}
@@ -192,7 +217,7 @@ Zur anschließenden Analyse soll ein filterbarer Datenexport bereitgestellt werd
 
 \ureq{Es soll eine \gls{Chat}funktion für die Kommunikation zwischen zwei Clients geben.}{A}
 
-\ureq{Die Chatfunktion soll nur mit freigegebenen Clients nutzbar sein.}{B} 
+\ureq{Die Chatfunktion soll nur mit freigegebenen Clients nutzbar sein.}{A} 
 
 \ureq{Anhand der abgeschlossenen Experimente und der \gls{Diskussion}en eines jeden Clients soll im Hintergrund ein \gls{Aktivitaetsscore} errechnet werden.}{B}
 
@@ -206,11 +231,11 @@ Zur anschließenden Analyse soll ein filterbarer Datenexport bereitgestellt werd
 
 \ureq{Zu jedem Experiment soll es zeitliche Paramenter geben, wie das vorgesehene Ende des Experiments.}{A}
 
-\ureq{Fragen sollen nur einer \gls{Gruppe} angeboten werden können.}{B}
+\ureq{Fragen sollen vom Admin ausgewählten \gls{Gruppe}n angeboten werden können.}{B}
 
 \ureq{Es sollen Fragen mit verschiedenen auswertbaren Antworttypen (Ja/Nein, Multiple Choice, Bewertung nach Punktesystem bzw. Zahl) möglich sein.}{A}
 
-\ureq{Zu jedem Experiment soll es (vom Admin zugefügte) Informationsmaterialien geben, die den Clients direkt oder als Download zur Verfügung stehen.}{A}
+\ureq{Ein Admin kann zu seinen Experimenten Informationsmaterialien hinzufügen, die den Clients direkt oder als Download zur Verfügung stehen.}{A}
 
 
 
@@ -233,20 +258,20 @@ Zur anschließenden Analyse soll ein filterbarer Datenexport bereitgestellt werd
 
 \ureq{Der Aktivitätsscore soll für Admins auswertbar sein.}{A}
 
-\ureq{Der Aktivitätsscore soll anhand folgender Informationen systemseitig errechnet werden: Anzahl \gls{Diskussion}en, Anzahl beantworteter Fragen und Qualität der Antworten.}{A}
+\ureq{Der Aktivitätsscore soll anhand folgender Informationen systemseitig errechnet werden: Anzahl \gls{Diskussion}en, Anzahl beantworteter Fragen und Qualität der Antworten.}{B}
 
 
 
 \section{Datenspeicherung und -verarbeitung}
 
-\ureq{Die erfassten Daten sollen anonymisiert gespeichert werden.}{B}
+\ureq{Die erfassten Daten sollen anonymisiert gespeichert werden.}{A}
 
-\ureq{Der Zugriff auf die Datenbank soll auf Admins beschränkt sein.}{B}
+\ureq{Der Zugriff auf die Datenbank soll auf Admins beschränkt sein.}{A}
 
 %FIXME Korrekten Befehl für Glossareinträge, die anders geschrieben werden als im Glossar benutzen.
 \ureq{Die Datenbank soll über Filter verfügen, damit die Daten einzelner \gls{Experiment}e getrennt abgerufen werden können.}{B}
 
-\ureq{Es soll eine Möglichkeit zum Datenexport geben, um die Daten (mit externen Programmen) auswerten zu können.}{C}
+\ureq{Es soll eine Möglichkeit zum Datenexport geben, um die Daten (mit externen Programmen) auswerten zu können.}{B}
 
 
 
