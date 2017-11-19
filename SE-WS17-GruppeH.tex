@@ -188,96 +188,181 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 
 %\printunsrtglossaries
 
+\part{User Requirements (aus der Musterlösung)}
 
-\part{User Requirements}
+\chapter{System Administrator and Experimenter}
+The experiments are set up and managed by the experimenters. 
+However, to grant user rights and deal with unwanted behavior by experimenters, the role of the system administrator is needed.
 
+\section{System Administrator}
+\ureq{The system administrator should be able to give rights to users to make them experimenter. (Each user should be manually confirmed as an experimenter. Experimenter privilege is restricted to selected individuals.)}{B}
 
-\chapter{Rollen}
+\ureq{The system administrator should be able to take away the experimenter status either permanently or for a specified time frame (An experimenter may lose his/her privilege by setting up too many experiments or otherwise abusing the system).}{C}
 
-\section{AdministratorIn}
+\section{Sign-up process}
+Since the experimenters have more rights than other participants, it is recommended to ask the experimenters for additional information during the sign-up process.
 
-\ureq{Es soll einen Zugang für Personen, die mit der \gls{App} \gls{Experiment}e durch\-führen, geben. Dieser wird als \gls{Admin} bezeichnet.}{A}
+\ureq{The experimenters shall be able to sign up as normal users that additionally select an option for wanting to become an experimenter.}{B}
 
-\ureq{Ein Admin soll \gls{Chatverbindung}en zwischen \gls{Client}s hinzufügen und löschen können.}{A}
+\ureq{The experimenters should be asked for additional information during sign-up: their real name, a description of the intended usage of the system, their field of study, and their associated university. (While this information can be kept optional, it may help to evaluate system usage at a later point.)}{B}
 
-\ureq{Ein Admin soll eigene \gls{Frage}n erstellen, bearbeiten, löschen, für Clients freigeben, für Clients beenden und auswerten können.}{A}
+\ureq{The experimenters shall be able to sign in with a username and password.}{A}
 
-\ureq{Ein Admin soll anderen Admins eine Berechtigung für seine eigenen Fragen vergeben/entfernen können.}{B}
+\ureq{The experimenters shall be able to request a new password.}{B}
 
-\ureq{Diese Berechtigung umfasst alle administrativen Operationsmöglichkeiten (siehe Punkt 3) des ursprünglichen Eigentümers.}{B}
+\section{Experiment setup}
+Every experiment needs careful setup. Since the aim of the experiment is to create useful data, which can be further processed by applying scientific methods, all settings and setting changes, if applicable, have to be carefully monitored so they may be retraced at a later time.
 
+\subsection{General}
 
+\ureq{The experimenters shall be able to set up a \textit{new experiment}.}{A}
 
+\ureq{The experimenters shall be able to define the \textit{task description}. (The task description provides information on the experiment without giving away the central question.)}{A}
 
+\ureq{The experimenters shall be able to set up the used \textit{language} for the given experiment. (English should be the default language, but other languages should be possible as well.)}{A}
 
-\section{Client}
+\ureq{The experimenters shall be able to define one or more \textit{preliminary questions} for the experiment. (It is also possible to have no preliminary questions.)}{A}
 
-\ureq{Es soll einen Zugang für Personen geben, die als ProbandInnen an Experimenten teilnehmen möchten. Dieser wird als \gls{Client} bezeichnet.}{A}
+\ureq{The experimenters shall be able to define the \textit{central question} for the experiment along with a list of possible answers or an intended answer format (e.g. an integer to specify the number of years a defendant should be sent to prison).}{A}
 
-\ureq{Im Zuge der Registrierung der Clients soll es eine Profil-Seite mit (tw. Pflicht-) Angaben zu \gls{Charakteristik}a geben.}{A}
+\ureq{The experimenters shall be able to enter the \textit{correct answer} for the central question. (This may happen in the beginning, during the course of, or after the experiment has finished.))}{}
 
-\ureq{Anhang dieser Charakteristika soll eine im Hintergrund ablaufende Zuordnung zu \gls{Gruppe}n stattfinden.}{A}
+\ureq{The experimenters shall be able to provide \textit{additional information} for the given experiment by uploading a description and the content itself. (E.g. for a legal decision the text of certain laws or a surveillance video or a list of previous offenses of the defendant would be possible additional information. It may be in the form of links or pdfs, but also images, videos or other file formats should be possible.)}{B}
 
-\ureq{Clients sollen sich dazu entscheiden können, an \gls{Frage}n teilzunehmen.}{A}
+\ureq{The experimenters shall be able to define the \textit{number of experiments} to be performed in a sequence. (It may be interesting to study the behavior of the same group of people during the course of a series of experiments.)}{A}
 
-\ureq{Es soll eine \gls{Chat}funktion für die Kommunikation zwischen zwei Clients geben.}{A}
+\ureq{The experimenters shall be able to repeat the same experiment with different parameters. (This means the experiment could be repeated with the same question and different network topologies or different questions and the same or a different network topology.)}{A}
 
-\ureq{Die Chatfunktion soll nur mit freigegebenen Clients nutzbar sein.}{A} 
+\subsection{Social network}
 
-\ureq{Anhand der abgeschlossenen Experimente und der \gls{Diskussion}en eines jeden Clients soll im Hintergrund ein \gls{Aktivitaetsscore} errechnet werden.}{B}
+\ureq{The experimenters shall be able to define parameters specifying the \textit{network type}. (E.g. the network should be scale-free or not or have a specified number of connections between any two users.)}{A}
 
-\ureq{Ein Client soll nur seinen eigenen Aktivitätsscore sehen können.}{C}
+\ureq{The experimenter shall be able to define the \textit{message format} for the user messages. (Messages could be plain text, but other formats such as numbers or more structured formats must also be possible.)}{A}
 
+\subsection{Start and End}
 
+\ureq{The experimenters shall be able to define start \textit{time and duration} of the experiment.}{A}
 
-\chapter{Experimente/Fragen}
+\ureq{The experimenters shall be able to set a time frame for the \textit{deliberation}. (The central question is available once the deliberation begins. The deliberation may only begin after the experiment has enough participants, the network is defined, and the central question along with the additional material is available.)}{A}
 
-\ureq{Zu jedem Experiment soll genau eine Frage gehören.}{A}
+\ureq{The experimenters shall be able to \textit{stop} the experiment manually at any time with or without requiring to answer the central question. (E.g. if a football game is canceled, and the central question is on the results of the game, it does not make sense to ask users to answer the question anymore.)}{A}
 
-\ureq{Zu jedem Experiment soll es zeitliche Paramenter geben, wie das vorgesehene Ende des Experiments.}{A}
+\subsection{Statistics}
 
-\ureq{Fragen sollen vom Admin ausgewählten \gls{Gruppe}n angeboten werden können.}{B}
+\ureq{The experimenters shall be able to decide whether the experiment will contribute points to a \textit{global leader board}. (Some experiments may require that users are not influenced by a desire to score points on the leader board.)}{B}
 
-\ureq{Es sollen Fragen mit verschiedenen auswertbaren Antworttypen (Ja/Nein, Multiple Choice, Bewertung nach Punktesystem bzw. Zahl) möglich sein.}{A}
-
-\ureq{Ein Admin kann zu seinen Experimenten Informationsmaterialien hinzufügen, die den Clients direkt oder als Download zur Verfügung stehen.}{A}
-
-
-
-
-\chapter{Chat}
-
-\ureq{Der \gls{Chat} soll (Text-)Nachrichten in Echtzeit übermitteln.}{A}
-
-\ureq{Der Chat soll auch Bilder und Dokumente übermitteln}{B}
-
-\ureq{Der Chat soll auch Videos, Audio-Formate und Sprachnachrichten über\-mitteln.}{C}
-
-\ureq{Es soll eine Funktion für Admins geben, die \gls{Chatverbindung}en zwischen Clients erstellt (Eingabe: Zur Frage angemeldete Clients, deren Charakteristika, sowie die (feste/maximale/flexible) Anzahl der Chatverbindungen pro Client)}{A}
+\ureq{The experimenters shall be able to define whether the correct answer and \textit{answering statistics} are presented to the user at the end of the experiment. (In a series of experiments it might make sense to only present results after the series has finished.)}{A}
 
 
 
-\chapter{Aktivitätsscore}
 
-\ureq{Jeder Client soll einen eigenen Aktivitätsscore haben.}{A}
+\section{Experiment - Results}
+The results of the experiments have to be accessible to the experimenters without violating privacy rights.
 
-\ureq{Der Aktivitätsscore soll für Admins auswertbar sein.}{A}
+\ureq{The experimenters shall be able to access the outcomes of the experiment in anonymized form.}{A}
 
-\ureq{Der Aktivitätsscore soll anhand folgender Informationen systemseitig errechnet werden: Anzahl \gls{Diskussion}en, Anzahl beantworteter Fragen und Qualität der Antworten.}{B}
+\ureq{The experimenters shall be able to download the outcomes of the experiment.}{C}
 
+\ureq{The experimenters shall be able to save the outcomes of the experiment in anonymized form.}{A}
 
+\section{Troubleshooting}
+A system can break down due to all kinds of errors and unexpected situations. This is where the system administrators need to step in. To give experimenters the means to inform the system administrators, the following rights are needed:
 
-\chapter{Datenspeicherung und -verarbeitung}
+\ureq{The experimenters shall be able to contact the system administrators.}{A}
 
-\ureq{Die erfassten Daten sollen anonymisiert gespeichert werden.}{A}
+\chapter{Participants/User}
 
-\ureq{Der Zugriff auf die Datenbank soll auf Admins beschränkt sein.}{A}
+This software is supposed to create an appealing environment for users and guarantee simple and intuitive usage to ensure the success of the experiments.
 
-%FIXME Korrekten Befehl für Glossareinträge, die anders geschrieben werden als im Glossar benutzen.
-\ureq{Die Datenbank soll über Filter verfügen, damit die Daten einzelner \gls{Experiment}e getrennt abgerufen werden können.}{B}
+\section{Sign-up and Sign-in}
+To ensure a quick start for the user, we want to provide the possibility of logging in with an existing accepted account. Since every user needs to have a clear identity, we need to ensure that every user is registered in the system and is able to keep his identity safe.
 
-\ureq{Es soll eine Möglichkeit zum Datenexport geben, um die Daten (mit externen Programmen) auswerten zu können.}{B}
+\ureq{The user shall be able to sign-up using his email, thus creating a user name and password}{A}
 
+\ureq{Each user shall only be able to sign up once. (This ensures the credibility of the experiment outcome}{A}
+
+\ureq{The user shall be prompted to accept the privacy policies.}{A}
+
+\ureq{The user shall be able to request a new password.}{B}
+
+\ureq{The user shall be able to start the tutorial. (A tutorial facilitates quick adoption of the main principles of the app without requiring to participate in a real experiment. Thus it prevents users from enrolling in experiments without the intention to complete them.)}{D}
+
+\ureq{The user shall be able to quit the tutorial.}{D}
+
+\ureq{The user shall be able to use an existing verified and accepted account as login data. (e.g. a Facebook account.)}{D}
+
+\section{Experiment Management}
+
+\ureq{The user shall be able to read the descriptions of all available experiments.}{A}
+
+\ureq{The user shall be able to choose from a list of available experiments.}{A}
+
+\ureq{The user shall be able to access a list of experiments that he/she currently participates in.}{A}
+
+\ureq{The user shall be able to view the status of each experiment that he/she currently participates in. (E.g. to see if the deliberation period has already started or ended.)}{B}
+
+\section{Questions}
+Core element of the experiment is the answering of questions by users.
+
+\ureq{The user shall be able to answer the preliminary questions after choosing to participate in an experiment.}{A}
+
+\ureq{The user shall be able to see the intended time of the deliberation period.}{A}
+
+\ureq{The central question must be readable by the user once the deliberation period has started.}{A}
+
+\ureq{It must be possible for the user to answer the central question once the deliberation period is over.}{A}
+
+\ureq{After the end of the deliberation period, the user has to be able to answer the central question until the end of the given deadline.}{A}
+
+\ureq{Once the deliberation period has ended the user shall be able to see the remaining time for answering the question. (E.g. after a deliberation period of one week, a countdown starts and the question has to be answered within one day.)}{B}
+
+\ureq{The user shall be able to access or download additional material that may help in answering the central question.}{A}
+
+\ureq{The user shall be able to see the correct answer after the end of the experiment if the experimenter has allowed it in the experiment setup.}{B}
+
+\section{Options}
+In addition to participating in the experiments, each user has the opportunity to control certain aspects of the app using predefined options.
+
+\ureq{The user shall be able to access the settings menu of the app.}{B}
+
+\ureq{The user shall be able to modify the appearance of the app.}{D}
+
+\ureq{The user shall be able to contact the system administrator.}{C}
+
+\ureq{The user shall be able to specify his/her spoken languages.}{A}
+
+\section{Message System}
+One part of the general setup of each experiment is the opportunity to exchange messages during the deliberation period of the experiment.
+
+\ureq{The user shall be able to see the usernames of people he/she is connected to in the social network.}{A}
+
+\ureq{The user shall be able to send messages to other users in the network if he/she is connected to them in the social network during the deliberation period.}{A}
+
+\ureq{The user shall be able to contact an experimenter (This may be necessary to report abuse, spam etc.).}{B}
+
+\ureq{The user shall be able to mute a contact. (This is necessary to prevent trolling.)}{B}
+
+\ureq{A profanity filter should verify messages (This only applies if messages contain plain text).}{B}
+
+\ureq{The user shall have the option to send a message to multiple users at once. (This facilitates communication especially when the network is densely connected.)}{B}
+
+\section{Leaderboard}
+Another incentive to use the app is the leader board. Competition ensures that users keep answering the questions and engage in discussions.\\
+
+\ureq{The user shall be able to see the global ranking.}{C}
+
+\ureq{The user shall be able to see his/her own rank.}{C}
+
+\chapter{System specification}
+Independent of its users, the system should conform to the following requirements.
+
+\ureq{The system shall be accessible through a web browser.}{A}
+
+\ureq{The system shall be accessed through a mobile phone app.}{A}
+
+\ureq{The system shall comply with ethical guidelines for experiments in the social sciences.}{A}
+
+\ureq{All data shall be stored according to the highest security standards.}{A}
 
 
 
