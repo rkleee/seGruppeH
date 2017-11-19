@@ -103,6 +103,8 @@ Der Chat ist ein sogenanntes Instant-Messaging-Programm wie z.B. WhatsApp.
 \newglossaryentry{Chatverbindung}{name={Chatverbindung},description={
 Die Chatverbindung ist die Kommunikationserlaubnis zwischen zwei Clients.}}
 
+\newglossaryentry{App}{name={App},description={Für Clients bereit gestellte Andoid App, die über den Google Play Store/von unserem Laptop aus, weil wir keinen PLay Store Account haben installiert wird.}}
+
 
 % Document information
 
@@ -195,7 +197,7 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 
 \subsection{AdministratorIn}
 
-\ureq{Es soll einen Zugang für Personen, die mit der App \gls{Experiment}e durchführen, geben. Dieser wird als \gls{Admin} bezeichnet.}{A}
+\ureq{Es soll einen Zugang für Personen, die mit der \gls{App} \gls{Experiment}e durchführen, geben. Dieser wird als \gls{Admin} bezeichnet.}{A}
 
 \ureq{Ein Admin soll \gls{Chatverbindung}en zwischen \gls{Client}s hinzufügen und löschen können.}{A}
 
@@ -446,6 +448,22 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
   \item Der Admin gibt außerdem einen Zeitraum für das Experiment, sowie die Dauer für Clients, eine Antwort abgeben zu können, an.
   \item Der Admin lädt das Info-PDF hoch.
   \item Der Admin sucht eine Gruppe aus und ordnet diese zu. (z.B. Jura-Studenten)
+  \end{itemize}}
+{\begin{itemize}
+    \item Die Eingaben (Fragetext und Fragebeschreibung) könnten zu lang sein.
+    \item Das PDF könnte zu groß oder im falschen Format sein.
+    \item ...
+    \end{itemize}}
+{Eingabefelder in ihrer Länge beschränken. Checks einbauen, die das PDF auf Größe (z.B. <5 MB) und auf das Format prüfen.}
+{User ist eingeloggt. Die Frage ist erstellt und wird mit PDF und allen weiteren vom Admin eingegebenen Infos den ausgewählten Clients zur Teilahme bereitgestellt.}
+
+\section{Szenario für die Registrierung als Client}
+
+\scenario{Eine Person möchte sich über die \gls{App} als \gls{Client} registrieren.}
+{\begin{itemize} 
+  \item Die Person installiert die App über den Google Play Store.
+  \item Sie startet die App, die sich mit dem Server verbindet und einen Registrierungsbildschirm anzeigt.
+  \item Sie wird aufgefordert die für die Registrierung erforderlichen Daten einzugeben. Sie gibt diese ein und bestätigt die Übermittlung an den Server.
   \end{itemize}}
 {\begin{itemize}
     \item Die Eingaben (Fragetext und Fragebeschreibung) könnten zu lang sein.
