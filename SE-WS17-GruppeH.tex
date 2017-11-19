@@ -148,8 +148,6 @@ Zur anschließenden Analyse soll ein filterbarer Datenexport bereitgestellt werd
 \chapter{Introduction}
 
 \section{(Initial) Problem Statement for the Mobile Decision Lab}
-Der Nutzen des Systems besteht darin, eine mobile Anwendung für Experimente, betreffend Gruppen-Entscheidungen 
-
 The purpose of the system is to have a mobile lab for experiments concerning groups decisions based on different network topologies. The outcome of experiments shall help understand how network structures impact group decisions. The networks are anonymous connections between participants with the possibility to exchange messages between connected participants.
 
 Networks can be constructed, for instance, scale-free or not, or with certain dimensionalities (everyone has exactly one neighbor, exactly two neighbors, etc.) and in a way that they additionally fulfill certain constraints (e.g., a connection between two participants {\em can only exist} if they share some properties, e.g., they are about the same age or have about the same expertise about the subject matter, or such a connection {\em cannot exist} if certain properties hold, e.g., neighbors have to be in different age groups or they are not allowed to have the same level of expertise).
@@ -290,16 +288,39 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 \chapter{Non-Functional Requirements}
 
 \section{Product Requirements}
-\nfreq{Beispiel1}{A}
+
+\subsection{Dependabiblity Requirements}
+\nfreq{Ein wartungsbedingter Ausfall sollte nicht länger als 10 Minuten andauern.}{A}
+
+\subsection{Security Requirements}
+\nfreq{Das System sollte gegen herkömmliche Hackerangriffe resistent sein.}{A}
+
+\nfreq{Das System sollte mit Schutzmechanismen gegen Bots und vandalisierende Benutzer ausgestattet sein.}{A}
+
+\nfreq{Benutzerkritische Daten (wie z.B. Passwort) sollten mit einer zeitgemäßen Verschlüsselungsmethode verschlüsselt sein.}{A}
+
 
 \section{Usability Requirements}
-\nfreq{Beispiel2}{A}
+\nfreq{Die Weboberfläche des Systems soll mit allen gängigen Browsern darstellbar sein.}{A}
+
+\nfreq{Die App soll mit allen Android-Geräten fehlerlos funktionieren.}{A}
+
+\nfreq{Alle potentiellen Nutzer sollen das System innerhalb von 10 Minuten (mit Tutorial) verstehen können.}{A}
+
+\nfreq{Alle potentiellen Admins sollen das System innerhalb von 30 Minuten verstehen können.}{A}
+
 
 \section{Efficiency Requirements}
-\nfreq{Beispiel3}{A}
+\nfreq{Systemseitige Prozessse (wie z.B. die Erstellung oder Beantwortung einer Frage) soll nicht länger als 1 Sekunde dauern (falls eine stabile Internetverbindung besteht).}{A}
+
+\nfreq{Aufwändige Operationen (wie z.B. der Export von 5MB Daten) sollen in weniger als 5 Sekunden abgeschlossen sein.}{A}
+
 
 \section{Performance Requirements}
-\nfreq{Beispiel4}{A}
+\nfreq{Es sollen mindestens 5000 User gleichzeitig am System arbeiten, ohne dass es zu verzögerten Wartezeiten kommt (5 Sekunden länger als normal).}{A}
+
+\nfreq{Die Datenbank soll ohne Beeinträchtigunngen mindestens 100GB Daten enthalten können}{A}
+
 
 
 \chapter{Funktionale Anforderungen}
@@ -308,80 +329,163 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 
 \freq{Wir verwenden eine Postgre-SQL Datenbank.}{1}{A}
 
-\freq{Benutzer können sich (mit E-Mail-Adresse, Benutzername und Passwort) am System registrieren und ihren Account verwalten. Dazu gibt es eine Benutzer-Tabelle.}{27}{A}
+\freq{Das System soll eine Weboberfläche zur Verfügung stellen.}{58}{A}
 
-\freq{In dieser Tabelle gibt es ein Boolean-Feld über das ein Client sich für den Admin-Status bewerben kann.}{1}{B}
+\freq{Das System soll über eine mobile App benutzbar sein.}{59}{A}
 
-\freq{Die Admins stehen ebenfalls in der gleichen Benutzer-Tabelle und sind über ein Boolean-Feld gekennzeichnet.}{1}{A}
-
-\freq{SysAdmins haben Zugriff auf die gesamte Datenbank und können (markierte) Clients zu Admins befördern. Sie können den Admin-Status auch wieder entfernen.}{2}{A}
-
-\freq{Durch diese Struktur sind Admins auch gleichzeitig Clients.}{3}{A}
-
-\freq{Für Admins können in der Datenbank zusätzliche Informationen gespeichert werden (Name, Grund für die Nutzung des Systems, Universität, Studienfach)}{4}{A}
-
-\freq{Für jeden Client wird in der Datenbank der Benutzername und ein Passwort gespeichert.}{5}{A}
-
-\freq{Die Datenbank ist in der Lage für jede Admin-ID einen Wiederherstellungs-Code zu generieren, über den er ein neues Passwort festlegen kann.}{6}{A}
-
-\freq{Die Datenbank speichert die durch Admins erstellte Experimente in einer Tabelle.}{7}{A}
-
-\freq{In der Experiment-Tabelle gibt es ein Feld zur Eingabe der Experiment-Beschreibung.}{8}{B}
+\freq{Die Datenbank erfüllt zeitgemäße Sicherheitsstandards}{61}{A}
 
 \freq{In der Datenbank existiert eine erweiterbare Tabelle mit Sprachen.}{9}{A}
-
-\freq{Der Admin wählt experimentbezogen eine Sprache aus. Diese wird in der Experiment-Tabelle hinterlegt. (Default: Englisch.)}{9}{A}
-
-\freq{Eine zu den Experimenten verlinkte Tabelle speichert "preliminary questions".}{10}{A}
-
-\freq{In der Experiment-Tabelle kann in einem Feld vom Admin die eigentliche Frage hinterlegt werden.}{11}{A}
-
-\freq{In der Experiment-Tabelle kann in einem Feld vom Admin der Antworttyp eingetragen werden (Multiple-Choice, Datum, Zahl, Boolean)}{11}{A}
-
-\freq{In der Experiment-Tabelle kann in einem Feld (eins je Antworttyp) vom Admin die korrekte angegeben werden.}{12}{A}
-
-\freq{Admins können zu Ihren Fragen Dokumente in bestimmten Formaten (PDF, JPG, PNG, ...) hochladen.}{13}{A}
-
-\freq{In der Datenbank gibt es eine Sequenz-Tabelle, in der eine Abfolge von Experimenten gespeichert werden kann.}{14}{C}
-
-\freq{In der Datenbank gespeicherte Fragen können von Admins kopiert werden, wobei Parameter geändert werden können (preliminary Questions, Dokumente, Beschreibung, ...)}{15}{A}
-
-\freq{Es gibt in der Datenbank eine Compound-Tabelle, die die Netzwerk-Topologie speichert (Clientverbindungen)}{16}{A}
-
-\freq{In der Compound-Tabelle gibt es mehrere Boolean-Felder für das Nachrichtenformat, das vom Admin festgelegt wird.}{17}{A}
-
-\freq{In der Experiment-Tabelle gibt es Felder den Start- und Endzeitpunkt. (vom Admin festgelegt)}{18}{A}
-
-\freq{In der Experiment-Tabelle gibt es ein Feld für die Bedenkzeit (vom Admin festgelegt).}{19}{A}
-
-\freq{In der Experiment-Tabelle gibt es ein Boolean-Feld für die Markierung von inaktiven Experimenten (vom Admin festgelegt)}{20}{A}
-
-\freq{In der Benutzer-Tabelle existiert ein Feld für den Aktivitätsscore.}{21}{B}
-
-\freq{In der Experiment-Tabelle existiert ein Boolean-Feld, das angibt, ob diese Frage den Aktivitätsscore beeinflusst (vom Admin festgelegt).}{21}{B}
-
-\freq{In der Experiment-Tabelle muss vom Admin festgelegt werden können, ob das Ergebnis nur ihm, öffentlich, oder nur bestimmten Usern zur Verfügung steht.}{22}{A}
-
-\freq{Die Datenbank speichert die Antworten in einer Antwort-Tabelle, in der die User-IDs der beantwortenden Personen verschlüsselt sind.}{23}{A}
 
 \freq{Die Datenbank ist in der Lage einen Export bestimmter Daten zur Verfügung zu stellen. Admins können diese herunterladen.}{24}{C}
 
 \freq{Siehe F-REQ 30}{25}{A}
 
-\freq{Admins sind über das System in der Lage, SysAdmins zu kontaktieren (z.B. per Kontaktformular).}{26}{A}
+\freq{Die Datenbank ist in der Lage für jeden Admin einen Wiederherstellungs-Code zu generieren, über den er ein neues Passwort festlegen kann.}{6}{A}
 
-\freq{Es gibt in der Benutzer-Tabelle einen Unique-Key mit Benutzername bzw. E-Mail Adresse.}{28}{A}
-
-\freq{Bei der Registrierung wird ein Benutzer aufgefordert, die Nutzungsbedingungen zu akzeptieren.}{29}{A}
-
-\freq{Die Datenbank ist in der Lage für jede Benutzer-ID einen Wiederherstellungscode zu generieren, über den er ein neues Passwort festlegen kann.}{30}{A}
-
-\freq{Das System stellt ein (Video-)Tutorial für neue Benutzer bereit.}{31}{D}
-
-\freq{Benutzer können das Tutorial überspringen bzw. beenden.}{32}{D}
+\freq{Die Datenbank ist in der Lage für jeden Client einen Wiederherstellungs-Code zu generieren, über den er ein neues Passwort festlegen kann.}{30}{A}
 
 \freq{Es gibt eine API-Schnittstelle zu anderen Datenbanken (z.B. Facebook), über die Benutzer-Account exportiert bzw. importiert werden können.}{33}{D}
 
+
+
+
+\section{Sonstige technische Anforderungen}
+\freq{Das System stellt ein (Video-)Tutorial für neue Benutzer bereit.}{31}{D}
+
+
+\freq{Benutzer können das Tutorial überspringen bzw. beenden.}{32}{D}
+
+
+\freq{Das System soll über verschiedene Einstellungen verfügen.}{46}{B}
+
+
+\freq{Diese Einstellungen sollen individuell von Benutzern konfiguriert werden können.}{47}{D}
+
+
+\freq{In den individuellen Einstellungen können Clients ihre bevorzugte Sprache konfigurieren.}{49}{A}
+
+
+
+
+
+
+\section{Benutzer (betrifft alle Rollen)}
+\freq{Benutzer können sich (mit E-Mail-Adresse, Benutzername und Passwort) am System registrieren und ihren Account verwalten. Dazu gibt es eine Benutzer-Tabelle in der Datenbank.}{27}{A}
+
+
+\freq{Dadurch, dass Admins in der gleichen Tabelle stehen, in der auch alle Clients sind, sind diese auch automatisch Clients.}{3}{A}
+
+
+\freq{Es gibt in der Benutzer-Tabelle einen Unique-Key mit Benutzername bzw. E-Mail Adresse.}{28}{A}
+
+
+\freq{Bei der Registrierung wird ein Benutzer aufgefordert, die Nutzungsbedingungen zu akzeptieren.}{29}{A}
+
+
+
+
+\section{SysAdmins}
+\freq{SysAdmins haben Zugriff auf die gesamte Datenbank und können (markierte) Clients zu Admins befördern. Sie können den Admin-Status auch wieder entfernen.}{2}{A}
+
+
+\freq{Admins sind über das System in der Lage, SysAdmins zu kontaktieren (z.B. per Kontaktformular).}{26}{A}
+
+
+\freq{Clients sind über das System in der Lage, SysAdmins zu kontaktieren (z.B. per Kontaktformular).}{48}{C}
+
+
+
+
+\section{Admins}
+\freq{Die Admins stehen ebenfalls in der gleichen Benutzer-Tabelle und sind über ein Boolean-Feld gekennzeichnet.}{1}{A}
+
+
+\freq{Für Admins können in der Datenbank zusätzliche Informationen gespeichert werden (Name, Grund für die Nutzung des Systems, Universität, Studienfach)}{4}{A}
+
+
+\freq{Der Admin wählt experimentbezogen eine Sprache aus. Diese wird in der Experiment-Tabelle hinterlegt. (Default: Englisch.)}{9}{A}
+
+
+\freq{Clients sind über das System in der Lage, Admins zu kontaktieren (z.B. per Kontaktformular).}{52}{B}
+
+
+\section{Clients}
+\freq{In der Benutzer-Tabelle gibt es ein Boolean-Feld über das ein Client sich für den Admin-Status bewerben kann.}{1}{B}
+
+
+\freq{Für jeden Client wird in der Datenbank der Benutzername und ein Passwort gespeichert.}{5}{A}
+
+
+\freq{In der Benutzer-Tabelle existiert ein Feld für den Aktivitätsscore.}{21}{B}
+
+\freq{In der Compound-Tabelle existiert ein Boolean-Feld, über das die Clientverbindung stummgeschaltet werden kann.}{53}{B}
+
+\freq{Das System stellt eine globale Rangliste aller Clients mit deren Aktivitätsscore zu Verfügung (in absteigendender Reihenfolge).}{56}{C}
+
+
+\freq{Das System zeigt Clients ihre Position in der globalen Rangliste an.}{57}{C}
+
+
+
+
+\section{Experiment-Erstellung}
+\freq{Die Datenbank speichert die durch Admins erstellte Experimente in einer Tabelle.}{7}{A}
+
+
+\freq{In der Experiment-Tabelle gibt es ein Feld zur Eingabe der Experiment-Beschreibung.}{8}{B}
+
+
+\freq{Eine zu den Experimenten verlinkte Tabelle speichert "preliminary questions".}{10}{A}
+
+
+\freq{Das System akzeptiert Antworten auf "preliminary Questions" nur von am Experiment teilnehmenden Benutzern.}{38}{A}
+
+
+\freq{In der Experiment-Tabelle kann in einem Feld vom Admin die eigentliche Frage hinterlegt werden.}{11}{A}
+
+
+\freq{In der Experiment-Tabelle kann in einem Feld vom Admin der Antworttyp eingetragen werden (Multiple-Choice, Datum, Zahl, Boolean)}{11}{A}
+
+
+\freq{Admins können zu Ihren Fragen Dokumente in bestimmten Formaten (PDF, JPG, PNG, ...) hochladen.}{13}{A}
+
+
+\freq{In der Experiment-Tabelle kann in einem Feld (eins je Antworttyp) vom Admin die korrekte angegeben werden.}{12}{A}
+
+
+\freq{In der Datenbank gibt es eine Sequenz-Tabelle, in der eine Abfolge von Experimenten gespeichert werden kann.}{14}{C}
+
+
+\freq{In der Datenbank gespeicherte Fragen können von Admins kopiert werden, wobei Parameter geändert werden können (preliminary questions, Dokumente, Beschreibung, ...)}{15}{A}
+
+
+\freq{In der Experiment-Tabelle existiert ein Boolean-Feld, das angibt, ob diese Frage den Aktivitätsscore beeinflusst (vom Admin festgelegt).}{21}{B}
+
+
+
+
+\section{Stati von Experimenten}
+\freq{In der Experiment-Tabelle gibt es Felder den Start- und Endzeitpunkt. (vom Admin festgelegt)}{18}{A}
+
+
+\freq{In der Experiment-Tabelle gibt es ein Feld für die Bedenkzeit (vom Admin festgelegt).}{19}{A}
+
+
+\freq{Das System zeigt jedem teilnehmenden Client den Wert der verbleibenden Bedenkzeit an.}{39}{A}
+
+\freq{Das System zeigt jedem teilnehmenden Client nach der Bedenkzeit die verbleibende Antwortzeit bis zum Endzeitpunkt an.}{43}{B}
+
+\freq{In der Experiment-Tabelle gibt es ein Boolean-Feld für die Markierung von inaktiven Experimenten (vom Admin festgelegt)}{20}{A}
+
+\freq{Das System zeigt den teilnehmenden Clients die eigentliche Frage nur während der Bedenkzeit an.}{40}{A}
+
+\freq{Das System ermöglicht teilnehmenden Clients nach der Bedenkzeit die Eingabe der Antworten.}{41}{A}
+
+\freq{Das System sperrt die Antworteingabe nach dem Endzeitpunkt des Experiments.}{42}{A}
+
+
+\section{Experiment-Übersicht}
 \freq{Es gibt für Clients eine filterbare Übersicht aller Experimente mit deren Beschreibungen.}{34}{A}
 
 \freq{Das System stellt Clients eine Übersicht der Experimente bereit, an denen sie teilnehmen können.}{35}{A}
@@ -390,53 +494,51 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 
 \freq{In der Experiment-Übersicht für Clients soll der Start- und Endzeitpunkt bzw. Status (aktiv / inaktiv).}{37}{B}
 
-\freq{Das System akzeptiert Antworten auf "preliminary Questions" nur von am Experiment teilnehmenden Benutzern.}{38}{A}
-
-\freq{Das System zeigt jedem teilnehmenden Client den Wert der verbleibenden Bedenkzeit an.}{39}{A}
-
-\freq{Das System zeigt den teilnehmenden Clients die eigentliche Frage nur während der Bedenkzeit an.}{40}{A}
-
-\freq{Das System ermöglicht teilnehmenden Clients nach der Bedenkzeit die Eingabe der Antworten.}{41}{A}
-
-\freq{Das System sperrt die Antworteingabe nach dem Endzeitpunkt des Experiments.}{42}{A}
-
-\freq{Das System zeigt jedem teilnehmenden Client nach der Bedenkzeit die verbleibende Antwortzeit bis zum Endzeitpunkt an.}{43}{B}
 
 \freq{Teilnehmende Clients sollen in der Lage sein, die hochgeladenen Dokumente herunterzuladen.}{44}{A}
 
+
+\section{Experiment-Ergebnis}
+\freq{Die Datenbank speichert die Antworten in einer Antwort-Tabelle, in der die User-IDs der beantwortenden Personen verschlüsselt sind.}{23}{A}
+
 \freq{Teilnehmende Clients sollen (falls vom Admin so definiert) in der Lage sein, nach dem Endzeitpunkt die korrekte Antwort einer Frage zu sehen.}{45}{B}
 
-\freq{Das System soll über verschiedene Einstellungen verfügen.}{46}{B}
+\freq{In der Experiment-Tabelle muss vom Admin festgelegt werden können, ob das Ergebnis nur ihm, öffentlich, oder nur bestimmten Usern zur Verfügung steht.}{22}{A}
 
-\freq{Diese Einstellungen sollen individuell von Benutzern konfiguriert werden können.}{47}{D}
 
-\freq{Clients sind über das System in der Lage, SysAdmins zu kontaktieren (z.B. per Kontaktformular).}{48}{C}
 
-\freq{In den individuellen Einstellungen können Clients ihre bevorzugte Sprache konfigurieren.}{49}{A}
+
+\section{Netzwerk}
+\freq{Es gibt in der Datenbank eine Compound-Tabelle, die die Netzwerk-Topologie speichert (Clientverbindungen)}{16}{A}
+
+
+\freq{In der Compound-Tabelle gibt es mehrere Boolean-Felder für das Nachrichtenformat, das vom Admin festgelegt wird.}{17}{A}
+
 
 \freq{Wenn eine Clientverbindung im System besteht, können die beteiligten Clients gegenseitig ihre Benutzernamen sehen.}{50}{A}
 
 \freq{Wenn eine Clientverbindung im System besteht, können beteiligte Clients während der Bedenkzeit Nachrichten austauschen.}{51}{A}
 
-\freq{Clients sind über das System in der Lage, Admins zu kontaktieren (z.B. per Kontaktformular).}{52}{B}
 
-\freq{In der Compound-Tabelle existiert ein Boolean-Feld, über das die Clientverbindung stummgeschaltet werden kann.}{53}{B}
+
+
 
 \freq{Das System stellt eine geeignete Filterfunktion für unangemessene Ausdrücken in Chats zur Verfügung.}{54}{B}
 
 \freq{Das System ermöglicht die gleichzeitige Auslieferung einer Nachricht an mehrere Clients.}{55}{B}
 
-\freq{Das System stellt eine globale Rangliste aller Clients mit deren Aktivitätsscore zu Verfügung (in absteigendender Reihenfolge).}{56}{C}
+\section{Ethische Leitlinien}
 
-\freq{Das System zeigt Clients ihre Position in der globalen Rangliste an.}{57}{C}
 
-\freq{Das System soll eine Weboberfläche zur Verfügung stellen.}{58}{A}
 
-\freq{Das System soll über eine mobile App benutzbar sein.}{59}{A}
+
+
+
+
 
 \freq{Das System soll ethischen Leitlinien unterliegen.}{60}{A}
 
-\freq{Die Datenbank erfüllt zeitgemäße Sicherheitsstandards}{61}{A}
+
 
 
 \part{Szenarios}
@@ -455,7 +557,7 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
     \item Das PDF könnte zu groß oder im falschen Format sein.
     \item ...
     \end{itemize}}
-{Eingabefelder in ihrer Länge beschränken. Checks einbauen, die das PDF auf Größe (z.B. <5 MB) und auf das Format prüfen.}
+{Keine anderen Aktivitäten möglich.}
 {User ist eingeloggt. Die Frage ist erstellt und wird mit PDF und allen weiteren vom Admin eingegebenen Infos den ausgewählten Clients zur Teilnahme bereitgestellt.}
 
 \chapter{Szenario für die Registrierung als Client}
