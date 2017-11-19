@@ -495,15 +495,17 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
   \item Der Server durchsucht die Datenbank nach für diesen Client zulässigen Experimenten und sendet sie an die App.
   \item Die App listet die verfügbaren Experimente aus, der Client kann Experiment auswählen.
   \item Die App fordert die Beschreibung des gewählten Experiments beim Server an und stellt sie dar.
-  \item Der Client kann auswählen, ob er sich für oder gegen die Teilnahme am Experiment entscheidet.
+  \item Der Client kann auswählen, ob er sich für oder gegen die Teilnahme am Experiment entscheidet und sendet eine Anfrage an den Server.
+  \item Der Server überprüft die Anfrage und trägt den Client für die Teilnahme ein.
   \end{itemize}}
 {\begin{itemize}
     \item Probleme mit der Internetverbindung
     \item Probleme mit der Erreichbarkeit der Servers
     \item Es sind keine (für den Client freigegebenen) Experimente verfügbar
-    \item 
+    \item Die Verbindung zum Server wird Unterbrochen
+    \item App stürzt ab.
     \end{itemize}}
-{Eine andere Person versucht den gleichen Schlüssel zur Registierung zu benutzen, andere Zugriffe auf den Server und die Datenbank, Datenbankeinträge könnten abgefragt werden, bevor sie fertig sind.}
+{Während der Abfrage könnten weitere Experimente hinzukommen oder welchebeendet werden, andere Zugriffe könnten den Server überlasten}
 {Neuer User ist eingeloggt, Eintrag in der Datenbank ist angelegt, Server und Client sind bereit zur Kommunikation.}
 
 
