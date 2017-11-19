@@ -88,7 +88,7 @@ Das sind die Personen, die sich registrieren, Fragen beantworten und diskutieren
 Die Gruppe ist eine Einteilung von Clients nach verschiedenen Charakteristika.}}
 
 \newglossaryentry{Charakteristik}{name={Charakteristik},description={
-Charakteristika entsprechen den vom Client angegebenen Profil-Informationen.}}
+Charakteristika entsprechen den vom Client angegebenen Profilinformationen}}
 
 \newglossaryentry{Diskussion}{name={Diskussion},description={
 Diskussionen sind der Austausch zwischen Clients, anhand derer eine eventuelle Beeinflussung gemessen werden kann.}}
@@ -193,11 +193,11 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 \part{User Requirements}
 
 
-\section{Rollen}
+\chapter{Rollen}
 
-\subsection{AdministratorIn}
+\section{AdministratorIn}
 
-\ureq{Es soll einen Zugang für Personen, die mit der \gls{App} \gls{Experiment}e durchführen, geben. Dieser wird als \gls{Admin} bezeichnet.}{A}
+\ureq{Es soll einen Zugang für Personen, die mit der \gls{App} \gls{Experiment}e durch\-führen, geben. Dieser wird als \gls{Admin} bezeichnet.}{A}
 
 \ureq{Ein Admin soll \gls{Chatverbindung}en zwischen \gls{Client}s hinzufügen und löschen können.}{A}
 
@@ -211,7 +211,7 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 
 
 
-\subsection{Client}
+\section{Client}
 
 \ureq{Es soll einen Zugang für Personen geben, die als ProbandInnen an Experimenten teilnehmen möchten. Dieser wird als \gls{Client} bezeichnet.}{A}
 
@@ -231,7 +231,7 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 
 
 
-\section{Experimente/Fragen}
+\chapter{Experimente/Fragen}
 
 \ureq{Zu jedem Experiment soll genau eine Frage gehören.}{A}
 
@@ -246,19 +246,19 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 
 
 
-\section{Chat}
+\chapter{Chat}
 
 \ureq{Der \gls{Chat} soll (Text-)Nachrichten in Echtzeit übermitteln.}{A}
 
 \ureq{Der Chat soll auch Bilder und Dokumente übermitteln}{B}
 
-\ureq{Der Chat soll auch Videos, Audio-Formate und Sprachnachrichten übermitteln.}{C}
+\ureq{Der Chat soll auch Videos, Audio-Formate und Sprachnachrichten über\-mitteln.}{C}
 
 \ureq{Es soll eine Funktion für Admins geben, die \gls{Chatverbindung}en zwischen Clients erstellt (Eingabe: Zur Frage angemeldete Clients, deren Charakteristika, sowie die (feste/maximale/flexible) Anzahl der Chatverbindungen pro Client)}{A}
 
 
 
-\section{Aktivitätsscore}
+\chapter{Aktivitätsscore}
 
 \ureq{Jeder Client soll einen eigenen Aktivitätsscore haben.}{A}
 
@@ -268,7 +268,7 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 
 
 
-\section{Datenspeicherung und -verarbeitung}
+\chapter{Datenspeicherung und -verarbeitung}
 
 \ureq{Die erfassten Daten sollen anonymisiert gespeichert werden.}{A}
 
@@ -373,7 +373,7 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 
 \freq{Bei der Registrierung wird ein Benutzer aufgefordert, die Nutzungsbedingungen zu akzeptieren.}{29}{A}
 
-\freq{Die Datenbank ist in der Lage für jede Benutzer-ID einen Wiederherstellungs-Code zu generieren, über den er ein neues Passwort festlegen kann.}{30}{A}
+\freq{Die Datenbank ist in der Lage für jede Benutzer-ID einen Wiederherstellungscode zu generieren, über den er ein neues Passwort festlegen kann.}{30}{A}
 
 \freq{Das System stellt ein (Video-)Tutorial für neue Benutzer bereit.}{31}{D}
 
@@ -440,7 +440,7 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
 
 \part{Szenarios}
 
-\section{Szenario für die Erstellung eines Experiments}
+\chapter{Szenario für die Erstellung eines Experiments}
 
 \scenario{Ein Admin möchte ein \gls{Experiment} erstellen: Wie lange muss ein verurteilter Täter in Haft? Dazu lädt er eine PDF-Datei mit Informationen zum Tathergang und dem Urteil hoch und ordnet eine \gls{Gruppe} dieser Frage zu.}
 {\begin{itemize} 
@@ -455,9 +455,9 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
     \item ...
     \end{itemize}}
 {Eingabefelder in ihrer Länge beschränken. Checks einbauen, die das PDF auf Größe (z.B. <5 MB) und auf das Format prüfen.}
-{User ist eingeloggt. Die Frage ist erstellt und wird mit PDF und allen weiteren vom Admin eingegebenen Infos den ausgewählten Clients zur Teilahme bereitgestellt.}
+{User ist eingeloggt. Die Frage ist erstellt und wird mit PDF und allen weiteren vom Admin eingegebenen Infos den ausgewählten Clients zur Teilnahme bereitgestellt.}
 
-\section{Szenario für die Registrierung als Client}
+\chapter{Szenario für die Registrierung als Client}
 
 \scenario{Eine Person möchte sich über die \gls{App} als \gls{Client} registrieren.}
 {\begin{itemize} 
@@ -482,6 +482,9 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
     \end{itemize}}
 {Eine andere Person versucht den gleichen Schlüssel zur Registierung zu benutzen, andere Zugriffe auf den Server und die Datenbank, Datenbankeinträge könnten abgefragt werden, bevor sie fertig sind.}
 {Neuer User ist eingeloggt, Eintrag in der Datenbank ist angelegt, Server und Client sind bereit zur Kommunikation.}
+
+
+
 
 \end{document}
 %%% Local Variables:
