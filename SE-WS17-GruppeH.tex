@@ -464,14 +464,24 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
   \item Die Person installiert die App über den Google Play Store.
   \item Sie startet die App, die sich mit dem Server verbindet und einen Registrierungsbildschirm anzeigt.
   \item Sie wird aufgefordert die für die Registrierung erforderlichen Daten einzugeben. Sie gibt diese ein und bestätigt die Übermittlung an den Server.
+  \item Der Server speichert die Eingaben in der Datenbank und meldet die erfolgreiche Registrierung zurück.
   \end{itemize}}
 {\begin{itemize}
-    \item Die Eingaben (Fragetext und Fragebeschreibung) könnten zu lang sein.
-    \item Das PDF könnte zu groß oder im falschen Format sein.
-    \item ...
+    \item Die App ist für das verwendete OS nicht verfügbar.
+    \item Die App ist zwar verfügbar, läuft aber auf dem verwendeten System nicht.
+    \item Die App läuft unbrauchbar langsam.
+    \item Es ist keine Verbindung zum Server möglich.
+    \item Der Server ist überlastet.
+    \item Die Internetverbindung wird während der Kommunikation mit dem Server unterbrochen.
+    \item Ein frei wählbarer Bezeichner, der als Schlüssel für die Datenbank verwendet wird, ist schon belegt.
+    \item Der User scheitert an der Eingabe der Daten.
+    \item Die Übermittlung der Daten ist unvollständig/wird abgebrochen.
+    \item Der Server verarbeitet die Eingabedaten fehlerhaft.
+    \item Die erfolgreiche Registrierung mit Eintrag in die Datenbank kann nicht übermittelt werden, weil die Internetverbindung zwischenzeitlich abgebrochen ist.
+    \item Die App wurde zwischenzeitlich beendet, die erfolgreiche Registrierung kann nicht übermittelt werden.
     \end{itemize}}
-{Eingabefelder in ihrer Länge beschränken. Checks einbauen, die das PDF auf Größe (z.B. <5 MB) und auf das Format prüfen.}
-{User ist eingeloggt. Die Frage ist erstellt und wird mit PDF und allen weiteren vom Admin eingegebenen Infos den ausgewählten Clients zur Teilahme bereitgestellt.}
+{Eine andere Person versucht den gleichen Schlüssel zur Registierung zu benutzen, andere Zugriffe auf den Server und die Datenbank, Datenbankeinträge könnten abgefragt werden, bevor sie fertig sind.}
+{Neuer User ist eingeloggt, Eintrag in der Datenbank ist angelegt, Server und Client sind bereit zur Kommunikation.}
 
 \end{document}
 %%% Local Variables:
