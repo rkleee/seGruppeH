@@ -13,11 +13,11 @@
 
 \newcommand{\scenario}[5]{
 \begin{description}
-\item [\uppercase{Initiale Situation}:]\textit{#1}
+\item [\uppercase{Initiale Situation}:]#1
   \item [\uppercase{Normal}:] \textit{#2}
   \item [\uppercase{Was schief gehen kann}:] \textit{#3}
-  \item [\uppercase{Andere Aktivitäten}:] \textit{#4}
-  \item [\uppercase{Zustand des Systems bei Erfolg}:] \textit{#5}
+  \item [\uppercase{Andere Aktivitäten}:] #4
+  \item [\uppercase{Zustand des Systems bei Erfolg}:] #5
 \end{description}
 }
 
@@ -105,6 +105,7 @@ Die Chatverbindung ist die Kommunikationserlaubnis zwischen zwei Clients.}}
 
 \newglossaryentry{App}{name={App},description={Für Clients bereit gestellte Andoid App, die über den Google Play Store/von unserem Laptop aus, weil wir keinen PLay Store Account haben installiert wird.}}
 
+\newglossaryentry{Datenbank}{name={Datenbank},description={Der Server speichert die Daten anonym und sicher}}
 
 % Document information
 
@@ -464,7 +465,7 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
   \item Die Person installiert die App über den Google Play Store.
   \item Sie startet die App, die sich mit dem Server verbindet und einen Registrierungsbildschirm anzeigt.
   \item Sie wird aufgefordert die für die Registrierung erforderlichen Daten einzugeben. Sie gibt diese ein und bestätigt die Übermittlung an den Server.
-  \item Der Server speichert die Eingaben in der Datenbank und meldet die erfolgreiche Registrierung zurück.
+  \item Der Server speichert die Eingaben in der \gls{Datenbank} und meldet die erfolgreiche Registrierung zurück.
   \end{itemize}}
 {\begin{itemize}
     \item Die App ist für das verwendete OS nicht verfügbar.
@@ -480,9 +481,30 @@ The participant can sign up for the mobile decision lab in an android app. He/sh
     \item Die erfolgreiche Registrierung mit Eintrag in die Datenbank kann nicht übermittelt werden, weil die Internetverbindung zwischenzeitlich abgebrochen ist.
     \item Die App wurde zwischenzeitlich beendet, die erfolgreiche Registrierung kann nicht übermittelt werden.
     \end{itemize}}
-{Eine andere Person versucht den gleichen Schlüssel zur Registierung zu benutzen, andere Zugriffe auf den Server und die Datenbank, Datenbankeinträge könnten abgefragt werden, bevor sie fertig sind.}
+{Eine andere Person versucht den gleichen Schlüssel zur Registrierung zu benutzen, andere Zugriffe auf den Server und die Datenbank, Datenbankeinträge könnten abgefragt werden, bevor sie vollständig sind.}
 {Neuer User ist eingeloggt, Eintrag in der Datenbank ist angelegt, Server und Client sind bereit zur Kommunikation.}
 
+
+
+\chapter{Szenario für die Anmeldung eines Clients für ein Experiment}
+
+\scenario{Ein bereits registrierter \gls{Client} möchte sich für ein \gls{Experiment} anmelden.}
+{\begin{itemize} 
+  \item Der Client startet die \gls{App} und loggt sich ein.
+  \item Es wird die Option zur Auflistung aller Experimente angefordert.
+  \item Der Server durchsucht die Datenbank nach für diesen Client zulässigen Experimenten und sendet sie an die App.
+  \item Die App listet die verfügbaren Experimente aus, der Client kann Experiment auswählen.
+  \item Die App fordert die Beschreibung des gewählten Experiments beim Server an und stellt sie dar.
+  \item Der Client kann auswählen, ob er sich für oder gegen die Teilnahme am Experiment entscheidet.
+  \end{itemize}}
+{\begin{itemize}
+    \item Probleme mit der Internetverbindung
+    \item Probleme mit der Erreichbarkeit der Servers
+    \item Es sind keine (für den Client freigegebenen) Experimente verfügbar
+    \item 
+    \end{itemize}}
+{Eine andere Person versucht den gleichen Schlüssel zur Registierung zu benutzen, andere Zugriffe auf den Server und die Datenbank, Datenbankeinträge könnten abgefragt werden, bevor sie fertig sind.}
+{Neuer User ist eingeloggt, Eintrag in der Datenbank ist angelegt, Server und Client sind bereit zur Kommunikation.}
 
 
 
