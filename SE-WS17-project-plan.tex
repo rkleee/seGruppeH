@@ -7,72 +7,74 @@
 
 \begin{document}
 
-\chapter{ProjectX}
+\chapter{Lustiges Frage-Antwort-Spiel mit pseudowissenschaftlichem Flair}
 
 
-\section*{Workpackages}
+\section*{Aufgabenbereiche (Work Packages)}
 
 \begin{enumerate}
-\item [WP1] Requirement Analysis, Outreach and Case Studies (Lead Group 1 (G1))
-\item [WP2] Interoperability, Deployment and Security (Lead Group 3 (G3))
-\item [WP3] Training, Support, Dissemination (Lead Group 9 (G9))
-\item [WP4] Service Integration (Lead Group 5 (G5))
-\item [WP5] Coordination and Management (Lead Group 1 (G1))
+\item [WP1] Projektplan und Arbeitsaufteilung (Gruppe H)
+\item [WP2] Datenbankdesign (Gruppe H)
+\item [WP3] Implementierung der App (Gruppe I)
+\item [WP4] Implementierung der Weboberfläche (Gruppe G)
+\item [WP5] Funktions- und Kompatibilitätstest (Gruppe J)
+\item [WP6] Marketing und Verteilung (Gruppe K)
+\item [WP7] Koordination und Management (Alle irgendwie)
 \end{enumerate}
 
 
-\subsection*{WP1 Requirement Analysis, Outreach and Case Studies}
+\subsection*{WP1 Projektplan und Arbeitsaufteilung}
 
-\subsubsection{Objectives:} Some objectives
-\subsubsection{Description of work: [Months: 1-36]} Some description
+\subsubsection{Ziele:} Alle beteiligten Entwickler wissen, was die eigenen Aufgaben sind und wie diese (als Module) das fertige Gesamtprojekt ergeben.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 1-1]} Erstellung einer strukturierten Übersicht, die jedem Entwickler(-Team) die Aufgaben (mit Zeitplan) zuweist.
+
+\subsection*{Aufgaben (Tasks)}
+
+\begin{enumerate}
+\item [T1.1] Erstellung des Projektplans (Alle Gruppen) (W1, W1) (1 W): \emph{ Aufteilung des Gesamtprojekts in Unterpunkte (Module), die auf einzelne Entwickler(-Teams) aufgeteilt werden.}
+\item [T1.2] Erstellung Gantt-Chart (Alle Gruppen) (W1, W1) (1 W) : \emph{ Zeitliche Übersicht über alle Arbeitsprozesse (Tasks) im gesamten Projektzeitraum. Meilensteine kennzeichnen die Fertigstellung wichtiger Projektphasen.}
+\item [T1.3] Erstellung Group Allocation Table (Alle Gruppen) (W1, W1) (1 W): \emph{ Beinhaltet alle beteiligten Entwickler(-Teams) und stellt dar, wer zu welchem Zeitpunkt an welchem Task arbeiten soll.}
+\end{enumerate}
+
+\subsection*{WP2 Datenbankdesign}
+
+\subsubsection{Ziele:} Sinnvolle Strukturierung der für die Anwendung erforderlichen Daten in verknüpften Tabellen. Dadurch ist eine einfache Auswertung relevanter Daten möglich.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 2-XX]} Auswahl einer zu den Anforderungen passenden Datenbank (z.B. MySQL, Access, PostgreSQL, MongoDB, CouchDB). Planung und Erstellung der Tabellen mit zugehörigen Verknüpfungen.
+
 
 \subsection*{Tasks}
 
 \begin{enumerate}
-\item [T1.1] Requirement Analysis (G1, G3) (M1, M6) (6 M): \emph{ Some short description (1-2 sentences).}
-\item [T1.2] Community Outreach (G3, G1) (M7, M24) (14 M) : \emph{ Some short description (1-2 sentences).}
-\item [T1.3] Case Studies (G3, G1, G2, G4, G5, G6, G7, G8, G9, G10, G11) (M13, M36) (31 M): \emph{ Some short description (1-2 sentences).}
+\item [T2.1] Auswahl einer geeigneten Datenbank (H) (W2, W3) (2 W): \emph{ Analyse der Anforderungen an die Datenbank.}
+\item [T2.2] Konzept für notwendige Tabellen (inkl. Normalisierung) (H) (W6, W7) (2 W): \emph{ Übersicht über alle notwendigen Informationen und welche Tabellen wie und womit zusammenhängen.}
+\item [T2.3] Erstellung der Tabellen (H) (W17, W18) (2 W): \emph{ Anhand der Requirements werden Tabellen erstellt und sinnvolle Zusammenhänge geschaffen (Fremdschlüssel, Eindeutige Keys, ...)}
+\item [T2.4] Dokumentation (H) (W81, W18) (1 W): \emph{ Dokumentation aller Tabllen, sodass jeder beteiligte Entwickler weiß, wie die Datenbank zu behandeln ist (auch wichtig für die Weiterentwicklung).}
+\item [T2.5] Erweiterung der Datenbank je nach Bedarf (H) (W19, W++) (X W): \emph{ Die Datenbank muss stetig aktualisiert und erweitert werden, falls neue Anforderungen entstehen.}
+\item [T2.6] Datenbankpflege (H) (W19, W++) (X W) : \emph{ Stetige Aktualisierung der Datenbank-Version (z.B. wegen Sicherheitslücken)}
 \end{enumerate}
 
-\subsection*{WP2 Interoperability, Deployment and Security}
+\subsection*{WP3 Implementierung der App}
 
-\subsubsection{Objectives:} Some objectives
-\subsubsection{Description of work: [Months: 1-36]} Some description
-
-
-\subsection*{Tasks}
+\subsubsection{Ziele:} Bedienung der Anwendung (aus der Sicht von Clients) ist über diverse Android-Geräte möglich.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 2-18]} Programmierung der App für Clients. Stetige Tests an verschiedenen aktuellen Android-Geräten.
 
 \begin{enumerate}
-\item [T2.1] Requirement Analysis (G10, G9, G1, G4, G7) (M1, M6) (6 M): \emph{ Some short description (1-2 sentences).}
-\item [T2.2] API specification and semantic interoperability (G2, G1, G7, G10, G9, G5) (M1, M24) (20 M): \emph{ Some short description (1-2 sentences).}
-\item [T2.3] Establish security environment (G10, G9, G1) (M1, M18) (8 M): \emph{ Some short description (1-2 sentences).}
-\item [T2.4] Services discovery (G1, G9, G10) (M1, M18) (6 M): \emph{ Some short description (1-2 sentences).}
-\item [T2.5] Deployment of virtual infrastructures and container orchestration (G9, G10, G1, G4, G7, G5) (M1, M18) (23 M): \emph{ Some short description (1-2 sentences).}
-\item [T2.6] Establishment and maintenance of ProjectX reference instance (G9, G10, G1) (M13, M36) (8 M) : \emph{ Some short description (1-2 sentences).}
-\item [T2.7] Interconnecting virtual environment with external e-infrastructures (G4, G9) (M13, M30) (8 M): \emph{ Some short description (1-2 sentences).}
-\item [T2.8] Federation between virtual environments (G9, G1) (M13, M30) (8 M): \emph{ Some short description (1-2 sentences).}
+\item [T3.1] API-Level festlegen (I) (W1, W1) (1 W): \emph{ Dadurch wird bestimmt, welche Andoid-Versionen mit dieser App kompatibel sind und welche Schnittstellen verwendet werden können.}
+\item [T3.2] Aufteilung der Implementierung in Module (I) (W2, W3) (2 W): \emph{ Sinnvolle Aufteilunng der Implementationsschritte auf die verschiedenen Entwickler, damit eine parallele Abarbeitung möglich ist.}
+\item [T3.3] Implementierung (I) (W17, W18) (2 W) : \emph{ Tatsächliche Implementierung der App mit sowohl kontinuierlichen als auch abschließenden Modultests.}
+\item [T3.4] Zusammenfügen der Module (I) (W18, W18) (1 W) : \emph{ Module werden zur gesamten App zusammengefügt (inkl. abschliender Gesamttest).}
+\item [T3.5] Verbindung zur Datenbank (I) (W18, W18) (1 W) : \emph{ Einrichtung der Schnittstelle zur Datenbank mit abschließendem Test.}
+\item [T3.6] Dokumentation (I) (W18, W18) (1 W) : \emph{ Jeder Entwickler fertigt eine Dokumentation zu seinem Modul an, damit eine einfache Erweiterbarkeit bzw. Wartbarkeit möglich ist.}
+\item [T3.7] Software-Wartung (I) (W19, W++) (XX W) : \emph{ Aktualisierung der Software für neue Android-Versionen.}
 \end{enumerate}
 
-\subsection*{WP3 Training, Support, Dissemination}
+\subsection*{WP4 Implementierung der Weboberfläche}
 
-\subsubsection{Objectives:} Some objectives
-\subsubsection{Description of work: [Months: 1-36]} Some description
-
-\begin{enumerate}
-\item [T3.1] Documentation of Core Infrastructure and Deployment (G10, G1, G2, G4, G5, G6, G7, G8, G9, G3, G11) (M7, M18) (9 M): \emph{ Some short description (1-2 sentences).}
-\item [T3.2] Training on Service Integration and Infrastructure Usage (G9, G1, G2, G4, G5, G6, G7, G8, G3, G10, G11) (M7, M36) (12 M): \emph{ Some short description (1-2 sentences).}
-\item [T3.3] Support Infrastructure (G5, G6, G9, G1, G2, G4, G7, G8, G3, G10, G11) (M13, M36) (18 M) : \emph{ Some short description (1-2 sentences).}
-\item [T3.4] Guidelines and Training on Standard File Formats, Ontology Usage, Quality Control and Protocolling (G6, G5, G1, G2, G4, G7, G8, G9, G3, G10, G11) (M13, M36) (10 M) : \emph{ Some short description (1-2 sentences).}
-\item [T3.5] Dissemination, Exploitation, Data Management and Sustainability Plan (G1, G2, G4, G5, G6, G7, G8, G9, G3, G10, G11) (M1, M36) (12 M) : \emph{ Some short description (1-2 sentences).}
-\end{enumerate}
-
-\subsection*{WP4 Service Integration}
-
-\subsubsection{Objectives:} Some objectives
-\subsubsection{Description of work: [Months: 7-36]} Some description
+\subsubsection{Ziele:} Admins können über die Weboberfläche die Experimente erstellen und verwalten. Hierüber soll auch die Bedienung der App als Client möglich sein.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 7-36]} Entwicklung der App als Web-Anwendung.
 
 \begin{enumerate}
-\item [T4.1] Relational Databases (G5, G6, G1, G7) (M7, M24) (13 M): \emph{ Some short description (1-2 sentences).}
+\item [T4.1] Auswal eines passenden (PHP-)Frameworks (G) (W2, W3) (2 W): \emph{ Some short description (1-2 sentences).}
 \item [T4.2] No-SQL Databases (G5, G6, G4, G1, G7, G4) (M7, M24) (10 M): \emph{ Some short description (1-2 sentences).}
 \item [T4.3] Knowledge Bases and Data Mining (G5, G6, G1, G7, G8) (M7, M24) (14 M) : \emph{ Some short description (1-2 sentences).}
 \item [T4.4] Ontology Services (G6, G5) (M7, M24) (10 M) : \emph{ Some short description (1-2 sentences).}
@@ -81,10 +83,10 @@
 \item [T4.7] Workflows, Visualisation and Reporting (G10, G9, G6, G1, G2) (M13, M30) (14 M) : \emph{ Some short description (1-2 sentences).}
 \end{enumerate}
 
-\subsection*{WP5 Coordination and Management}
+\subsection*{WP5 Koordination und Management}
 
-\subsubsection{Objectives:} Some objectives
-\subsubsection{Description of work: [Months: 1-36]} Some description
+\subsubsection{Ziele:} Ziele hier einfügen
+\subsubsection{Beschreibung der Arbeit: [Wochen: 1-36]} Beschreibung hier einfügen
 
 \begin{enumerate}
 \item [T5.1] Coordination \& Tracking (G1, G5, G6, G9, G3) (M1, M36) (11 M): \emph{ Some short description (1-2 sentences).}
@@ -102,53 +104,53 @@
  vgrid, 
  bar label font =\small,
  bar/.append style={fill=red!50},
- y unit chart=0.4cm]{1}{36}
- \gantttitle{2017}{12}
- \gantttitle{2018}{12} 
- \gantttitle{2019}{12} \\
+ y unit chart=0.5cm]{1}{18}
+ \gantttitle{Dezember}{5}
+ \gantttitle{Januar}{5}
+ \gantttitle{Februar}{4}
+ \gantttitle{Maerz}{4} \\
 
- \ganttbar{T1.1}{1}{6}\\
- \ganttbar{T1.2}{7}{24}\\
- \ganttbar{T1.3}{13}{36} 
+ \ganttbar{T1.1}{1}{3}\\
+ \ganttbar{T1.2}{4}{12}\\
+ \ganttbar{T1.3}{7}{18} 
 
 \ganttnewline[thick]
 
- \ganttbar{T2.1}{1}{6} \\
- \ganttbar{T2.2}{1}{24}\\
- \ganttbar{T2.3}{1}{18}\\
- \ganttbar{T2.4}{1}{18}\\
- \ganttbar{T2.5}{1}{18}\\
- \ganttbar{T2.6}{13}{36}\\
- \ganttbar{T2.7}{13}{30}\\
- \ganttbar{T2.8}{13}{30}
+ \ganttbar{T2.1}{1}{3} \\
+ \ganttbar{T2.2}{1}{12}\\
+ \ganttbar{T2.3}{1}{9}\\
+ \ganttbar{T2.4}{1}{9}\\
+ \ganttbar{T2.5}{1}{9}\\
+ \ganttbar{T2.6}{7}{18}\\
+ \ganttbar{T2.7}{7}{15}\\
+ \ganttbar{T2.8}{7}{15}
 \ganttnewline[thick]
 
- \ganttbar{T3.1}{7}{18} \\
- \ganttbar{T3.2}{13}{36}\\
- \ganttbar{T3.3}{7}{36}\\
- \ganttbar{T3.4}{13}{36}\\
- \ganttbar{T3.5}{1}{36}
+ \ganttbar{T3.1}{4}{18} \\
+ \ganttbar{T3.2}{7}{18}\\
+ \ganttbar{T3.3}{4}{18}\\
+ \ganttbar{T3.4}{7}{18}\\
+ \ganttbar{T3.5}{1}{18}
 \ganttnewline[thick]
 
- \ganttbar{T4.1}{7}{24} \\
- \ganttbar{T4.2}{7}{24}\\
- \ganttbar{T4.3}{7}{24}\\
- \ganttbar{T4.4}{7}{24}\\
- \ganttbar{T4.5}{7}{24}\\
- \ganttbar{T4.6}{7}{30}\\
- \ganttbar{T4.7}{12}{30}
+ \ganttbar{T4.1}{4}{12} \\
+ \ganttbar{T4.2}{4}{12}\\
+ \ganttbar{T4.3}{4}{12}\\
+ \ganttbar{T4.4}{4}{12}\\
+ \ganttbar{T4.5}{4}{12}\\
+ \ganttbar{T4.6}{4}{15}\\
+ \ganttbar{T4.7}{6}{15}
 \ganttnewline[thick]
 
- \ganttbar{T5.1}{1}{36} \\
- \ganttbar{T5.2}{1}{36}\\
- \ganttbar{T5.3}{3}{36}\\
- \ganttbar{T5.4}{10}{36}
+ \ganttbar{T5.1}{1}{18} \\
+ \ganttbar{T5.2}{1}{18}\\
+ \ganttbar{T5.3}{2}{18}\\
+ \ganttbar{T5.4}{5}{18}
 \ganttnewline[thick]
-\ganttmilestone{Milestones}{7}
-\ganttmilestone{Milestones}{12}
+\ganttmilestone{Milestones}{5}
+\ganttmilestone{Milestones}{10}
+\ganttmilestone{Milestones}{14}
 \ganttmilestone{Milestones}{18}
-\ganttmilestone{Milestones}{24}
-\ganttmilestone{Milestones}{36}
 
 \end{ganttchart}
 \end{landscape}
