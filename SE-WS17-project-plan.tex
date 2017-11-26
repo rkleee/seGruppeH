@@ -133,67 +133,89 @@
 \item [T7.2] visuelle Vorlage für die Weboberfläche (H) (W13, W16) (4 W) : \emph{ Alle graphischen Benutzeroberflächen der Weboberfläche werden designed und an Entwickler übermittelt.}
 \end{enumerate}
 
-%\newpage
-\begin{landscape}
-\begin{minipage}{\textwidth}
-\begin{landscape}
+
+
+\newpage
+%\begin{landscape}
+%\begin{minipage}{\textwidth}
+%\begin{landscape}
 \subsection*{Gantt Chart}
 \begin{ganttchart}[hgrid, 
  vgrid, 
  bar label font =\small,
- bar/.append style={fill=red!50, line width=.75pt},
- y unit chart=0.44cm, x unit=.9cm]{1}{18}
+  bar/.append style={fill=red!50},
+ y unit chart=0.5cm]{1}{18}
+ 
+ %bar/.append style={fill=red!50, line width=.75pt},
+ %y unit chart=0.44cm, x unit=.9cm]{1}{18}
+ 
+
+ 
+ 
  \gantttitle{Dezember}{5}
  \gantttitle{Januar}{5}
  \gantttitle{Februar}{4}
- \gantttitle{Maerz}{4} \\
+ \gantttitle{März}{3} \\
 
- \ganttbar{T1.1}{1}{3}\\
- \ganttbar{T1.2}{4}{12}\\
- \ganttbar{T1.3}{7}{18} 
-
+ \ganttbar{T1.1}{1}{1}\\
+ \ganttbar{T1.2}{1}{1}\\
+ \ganttbar{T1.3}{1}{1} \\
+ \ganttbar{T1.4}{1}{17}\\
+ \ganttbar{T1.5}{1}{17}
+ 
 \ganttnewline[thick]
 
- \ganttbar{T2.1}{1}{3} \\
- \ganttbar{T2.2}{1}{12}\\
- \ganttbar{T2.3}{1}{9}\\
- \ganttbar{T2.4}{1}{9}\\
- \ganttbar{T2.5}{1}{9}\\
- \ganttbar{T2.6}{7}{18}\\
- \ganttbar{T2.7}{7}{15}\\
- \ganttbar{T2.8}{7}{15}
+ \ganttbar{T2.1}{2}{3} \\
+ \ganttbar{T2.2}{5}{6}\\
+ \ganttbar{T2.3}{16}{17}\\
+ \ganttbar{T2.4}{16}{17}\\
+ \ganttbar{T2.5}{17}{17}\\
+ \ganttbar{T2.6}{17}{17}
 \ganttnewline[thick]
 
- \ganttbar{T3.1}{4}{18} \\
- \ganttbar{T3.2}{7}{18}\\
- \ganttbar{T3.3}{4}{18}\\
- \ganttbar{T3.4}{7}{18}\\
- \ganttbar{T3.5}{1}{18}
+ \ganttbar{T3.1}{1}{1} \\
+ \ganttbar{T3.2}{2}{3}\\
+ \ganttbar{T3.3}{16}{17}\\
+ \ganttbar{T3.4}{16}{16}\\
+ \ganttbar{T3.5}{16}{16}\\
+ \ganttbar{T3.6}{16}{16}\\
+ \ganttbar{T3.7}{17}{17}\\
+ \ganttbar{T3.8}{17}{17}
 \ganttnewline[thick]
 
- \ganttbar{T4.1}{4}{12} \\
- \ganttbar{T4.2}{4}{12}\\
- \ganttbar{T4.3}{4}{12}\\
- \ganttbar{T4.4}{4}{12}\\
- \ganttbar{T4.5}{4}{12}\\
- \ganttbar{T4.6}{4}{15}\\
- \ganttbar{T4.7}{6}{15}
+ \ganttbar{T4.1}{2}{3} \\
+ \ganttbar{T4.2}{15}{16}\\
+ \ganttbar{T4.3}{16}{16}\\
+ \ganttbar{T4.4}{16}{16}\\
+ \ganttbar{T4.5}{16}{16}\\
+ \ganttbar{T4.6}{16}{16}\\
+ \ganttbar{T4.7}{17}{17}
 \ganttnewline[thick]
 
- \ganttbar{T5.1}{1}{18} \\
- \ganttbar{T5.2}{1}{18}\\
- \ganttbar{T5.3}{2}{18}\\
- \ganttbar{T5.4}{5}{18}
+ \ganttbar{T5.1}{17}{17} \\
+ \ganttbar{T5.2}{17}{17}\\
+ \ganttbar{T5.3}{17}{17}\\
+ \ganttbar{T5.4}{17}{17}\\
+ \ganttbar{T5.5}{17}{17}
 \ganttnewline[thick]
-\ganttmilestone{Milestones}{3}
+
+ \ganttbar{T6.1}{2}{6}\\
+ \ganttbar{T6.2}{6}{17}\\
+ \ganttbar{T6.3}{7}{8}\\
+ \ganttbar{T6.4}{6}{17}
+\ganttnewline[thick]
+
+ \ganttbar{T7.1}{6}{9}\\
+ \ganttbar{T7.2}{7}{13}
+\ganttnewline[thick]
+\ganttmilestone{Milestones}{2}
 \ganttmilestone{Milestones}{9}
-\ganttmilestone{Milestones}{12}
-\ganttmilestone{Milestones}{15}
+\ganttmilestone{Milestones}{13}
+\ganttmilestone{Milestones}{4}
 
 \end{ganttchart}
-\end{landscape}
-\end{minipage}
-\end{landscape}
+
+
 
 
 \subsection*{Group Allocation Table}

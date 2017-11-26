@@ -122,20 +122,27 @@
 \item [T7.2] visuelle Vorlage für die Weboberfläche (H) (W10, W13) (4 W) : \emph{ Alle graphischen Benutzeroberflächen der Weboberfläche werden designed und an Entwickler übermittelt.}
 \end{enumerate}
 
-%\newpage
-\begin{landscape}
-\begin{minipage}{\textwidth}
-\begin{landscape}
+\newpage
+%\begin{landscape}
+%\begin{minipage}{\textwidth}
+%\begin{landscape}
 \subsection*{Gantt Chart}
 \begin{ganttchart}[hgrid, 
  vgrid, 
  bar label font =\small,
- bar/.append style={fill=red!50, line width=.75pt},
- y unit chart=0.44cm, x unit=.9cm]{1}{18}
+  bar/.append style={fill=red!50},
+ y unit chart=0.5cm]{1}{18}
+ 
+ %bar/.append style={fill=red!50, line width=.75pt},
+ %y unit chart=0.44cm, x unit=.9cm]{1}{18}
+ 
+
+ 
+ 
  \gantttitle{Dezember}{5}
  \gantttitle{Januar}{5}
  \gantttitle{Februar}{4}
- \gantttitle{Maerz}{3} \\
+ \gantttitle{März}{3} \\
 
  \ganttbar{T1.1}{1}{1}\\
  \ganttbar{T1.2}{1}{1}\\
@@ -180,7 +187,7 @@
 \ganttnewline[thick]
 
  \ganttbar{T6.1}{2}{6}\\
- \ganttbar{}T6.2{6}{17}\\
+ \ganttbar{T6.2}{6}{17}\\
  \ganttbar{T6.3}{7}{8}\\
  \ganttbar{T6.4}{6}{17}
 \ganttnewline[thick]
@@ -194,9 +201,9 @@
 \ganttmilestone{Milestones}{4}
 
 \end{ganttchart}
-\end{landscape}
-\end{minipage}
-\end{landscape}
+%\end{landscape}
+%\end{minipage}
+%\end{landscape}
 
 
 \subsection*{Group Allocation Table}
