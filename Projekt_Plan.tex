@@ -1,0 +1,207 @@
+\documentclass{report}
+
+
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
+
+
+\begin{document}
+
+\chapter{ProjectX}
+
+
+\section*{Workpackages}
+
+\begin{enumerate}
+\item [WP1] Koordination und Management(Gruppe H)
+\item [WP2] Datenbankdesign (Gruppe H)
+\item [WP3] Implementierung der App (Gruppe I)
+\item [WP4] Implementierung der Weboberfläche (Gruppe G)
+\item [WP5] Funktions- und Kompatibilitätstest (Gruppe I+G)
+\item [WP6] Marketing und Verteilung (Gruppe J)
+\item [WP7] Design der Weboberfläche und App (Gruppe H)
+\end{enumerate}
+
+
+\subsection*{WP1 Koordination und Management}
+
+\subsubsection{Ziele:} Alle beteiligten Entwickler wissen, was die eigenen Aufgaben sind und wie diese (als Module) das fertige Gesamtprojekt ergeben.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 1-1]} Erstellung einer strukturierten Übersicht, die jedem Entwickler(-Team) die Aufgaben (mit Zeitplan) zuweist.
+
+\subsection*{Aufgaben (Tasks)}
+
+\begin{enumerate}
+\item [T1.1] Erstellung des Projektplans (H) (W1, W1) (1 W): \emph{ Aufteilung des Gesamtprojekts in Unterpunkte (Module), die auf einzelne Entwickler(-Teams) aufgeteilt werden.}
+\item [T1.2] Erstellung Gantt-Chart (H) (W1, W1) (1 W) : \emph{ Zeitliche Übersicht über alle Arbeitsprozesse (Tasks) im gesamten Projektzeitraum. Meilensteine kennzeichnen die Fertigstellung wichtiger Projektphasen.}
+\item [T1.3] Erstellung Group Allocation Table (H) (W1, W1) (1 W): \emph{ Beinhaltet alle beteiligten Entwickler(-Teams) und stellt dar, wer zu welchem Zeitpunkt an welchem Task arbeiten soll.}
+\item [T1.4] Verwaltung des Budgets (H) (W1, W17) (17 W) : \emph{Verteilung der Ressourcen auf die einzelnen Gruppen.}
+\item [T1.5] Meetings (H) (W1, W17) (17 W) : \emph{Planung von Meetings für Zwischenberichte und Weihnachtsfeier.}
+\end{enumerate}
+
+\subsection*{WP2 Datenbankdesign}
+
+\subsubsection{Ziele:} Sinnvolle Strukturierung der für die Anwendung erforderlichen Daten in verknüpften Tabellen. Dadurch ist eine einfache Auswertung relevanter Daten möglich.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 2-XX]} Auswahl einer zu den Anforderungen passenden Datenbank (z.B. MySQL, Access, PostgreSQL, MongoDB, CouchDB). Planung und Erstellung der Tabellen mit zugehörigen Verknüpfungen.
+
+
+\subsection*{Tasks}
+
+\begin{enumerate}
+\item [T2.1] Auswahl einer geeigneten Datenbank (H) (W2, W3) (2 W): \emph{ Analyse der Anforderungen an die Datenbank.}
+\item [T2.2] Konzept für notwendige Tabellen (inkl. Normalisierung) (H) (W5, W6) (2 W): \emph{ Übersicht über alle notwendigen Informationen und welche Tabellen wie und womit zusammenhängen.}
+\item [T2.3] Erstellung der Tabellen (H) (W16, W17) (2 W): \emph{ Anhand der Requirements werden Tabellen erstellt und sinnvolle Zusammenhänge geschaffen (Fremdschlüssel, Eindeutige Keys, ...)}
+\item [T2.4] Dokumentation (H) (W16, W17) (1 W): \emph{ Dokumentation aller Tabellen, sodass jeder beteiligte Entwickler weiß, wie die Datenbank zu behandeln ist (auch wichtig für die Weiterentwicklung).}
+\item [T2.5] Erweiterung der Datenbank je nach Bedarf (H) (W17, W++) (X W): \emph{ Die Datenbank muss stetig aktualisiert und erweitert werden, falls neue Anforderungen entstehen.}
+\item [T2.6] Datenbankpflege (H) (W17, W++) (X W) : \emph{ Stetige Aktualisierung der Datenbank-Version (z.B. wegen Sicherheitslücken)}
+\end{enumerate}
+
+\subsection*{WP3 Implementierung der App}
+
+\subsubsection{Ziele:} Bedienung der Anwendung (aus der Sicht von Clients) ist über diverse Android-Geräte möglich.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 2-16]} Programmierung der App für Clients. Stetige Tests an verschiedenen aktuellen Android-Geräten.
+
+\begin{enumerate}
+\item [T3.1] API-Level festlegen (I) (W1, W1) (1 W): \emph{ Dadurch wird bestimmt, welche Andoid-Versionen mit dieser App kompatibel sind und welche Schnittstellen verwendet werden können.}
+\item [T3.2] Aufteilung der Implementierung in Module (I) (W2, W3) (2 W): \emph{ Sinnvolle Aufteilunng der Implementationsschritte auf die verschiedenen Entwickler, damit eine parallele Abarbeitung möglich ist.}
+\item [T3.3] Implementierung (I) (W16, W17) (2 W) : \emph{ Tatsächliche Implementierung der App mit sowohl kontinuierlichen als auch abschließenden Modultests.}
+\item [T3.4] Zusammenfügen der Module (I) (W16, W16) (1 W) : \emph{ Module werden zur gesamten App zusammengefügt.}
+\item [T3.5] Verbindung zur Datenbank (I) (W16, W16) (1 W) : \emph{ Einrichtung der Schnittstelle zur Datenbank mit abschließendem Test.}
+\item [T3.6] Dokumentation (I) (W16, W16) (1 W) : \emph{ Jeder Entwickler fertigt eine Dokumentation zu seinem Modul an, damit eine einfache Erweiterbarkeit bzw. Wartbarkeit möglich ist.}
+\item [T3.7] Software-Wartung (I) (W17, W++) (XX W) : \emph{ Aktualisierung der Software für neue Android-Versionen.}
+\item [T3.8] Fehlerbehebung (I) (W17, W17) (1 W): \emph{Die von den Testern dokumentierten Fehler werden behoben.}
+\end{enumerate}
+
+\subsection*{WP4 Implementierung der Weboberfläche}
+
+\subsubsection{Ziele:} Das Projekt ist als Web-Anwendung verfügbar.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 2-16]} Programmierung der Weboberfläche für Clients und Admins. Stetige Tests mit verschiedenen Webbrowsern.
+
+\begin{enumerate}
+\item [T4.1] Aufteilung der Implementierung in Module(G) (W2, W3) (2 W): \emph{ Sinnvolle Aufteilunng der Implementationsschritte auf die verschiedenen Entwickler, damit eine parallele Abarbeitung möglich ist.}
+\item [T4.2] Implementierung (G) (W15, W16) (2 W): \emph{ Tatsächliche Implementierung der Weboberfläche mit sowohl kontinuierlichen als auch abschließenden Modultests.}
+\item [T4.3] Zusammenfügen der Module (G) (W16, W16) (1 W) : \emph{ Module werden zur gesamten Weboberfläche zusammengefügt.}
+\item [T4.4] Verbindung zur Datenbank (G) (W16, W16) (1 W) : \emph{ Einrichtung der Schnittstelle zur Datenbank mit abschließendem Test.}
+\item [T4.5] Dokumentation (G) (W16, W16) (1 W) : \emph{ Jeder Entwickler fertigt eine Dokumentation zu seinem Modul an, damit eine einfache Erweiterbarkeit bzw. Wartbarkeit möglich ist.}
+\item [T4.6] Software-Wartung (G) (W16, W16) (1 W): \emph{ Aktualisierung der Software für neue Webbrowser-Versionen}
+\item [T4.7] Fehlerbehebung (G) (W17, W17) (1 W): \emph{Die von den Testern dokumentierten Fehler werden behoben.}
+
+\end{enumerate}
+
+\subsection*{WP5 Funktions- und Kompatibilitätstest}
+
+\subsubsection{Ziele:} Das Projekt funktioniert fehlerfrei.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 16-17]} Testen aller möglichen Scenarien, finden aller Bugs und gegebenenfalls einbringen von Optimierungsvoschläge.
+
+\begin{enumerate}
+\item [T5.1] Testen der App als Admin (I) (W17, W17) (1 W): \emph{ Die App wird auf verschiedenen Androidgeräten in der Rolle des Admins getestet. Dabei stehen in der App natürlich nur die Client-Funktionen zur Verfügunng, die alle mindestens einmal getestet werden sollen.}
+\item [T5.2] Testen der App als Client (I) (W17, W17) (1 W) : \emph{ Die App wird auf verschiedenen Androidgeräten in der Rolle des Clients getestet. Dabei sollen alle Funktionalitäten mindestens einmal getestet werden.}
+\item [T5.3] Testen der Weboberfläche als Admin (G) (W17, W17) (1 W): \emph{ Die Web-Anwendung wird in verschiedenen Webbrowsern in der Rolle des Admins getestet. Dabei sollen alle Funktionalitäten mindestens einmal getestet werden.}
+\item [T5.4] Testen der Weboberfläche als Client(G) (W17, W17) (1 W) : \emph{ Die Web-Anwendung wird in verschiedenen Webbrowsern in der Rolle des Client getestet. Dabei sollen alle Funktionalitäten mindestens einmal getestet werden.}
+\item [T5.5] Dokumentation der Fehler (I+G) (W17, W17) (1 W) : \emph{Jeder Tester fertigt einen Fehlerberichts seines getesteten Moduls an.}
+\end{enumerate}
+
+\subsection*{WP6 Marketing und Verteilung}
+
+\subsubsection{Ziele:} Die App soll eine möglichst hohe Downloadrate im Google Play Store haben.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 1-17]} Entwicklung einer Marketingstrategie und Bekanntmachung der App.
+
+\begin{enumerate}
+\item [T6.1] Erstellung einer Marketingstrategie (J) (W2, W6) (4 W): \emph{Unter Berücksichtigung des Budgets werden verschiedene Werbezweige angesteuert.}
+\item [T6.2] Öffentlichkeitsarbeit(J) (W6, W17) (11 W) : \emph{ Die Gruppe überlegt sich eine Strategie zur Steigerung der Popularität.}
+\item [T6.3] Optional: Werbeverträge abschließen (J) (W7, W8) (2 W): \emph{ Unter Berücksichtigung des Budgets werden verschiedene Medien angesteuert.}
+\item [T6.4] Social Media Kampagne (J) (W6, W17) (11 W) : \emph{ Als kostengünstige Alternative werden passende Soziale Medien genutzt.}
+\end{enumerate}
+
+\subsection*{WP7 Design der Weboberfläche und App}
+
+\subsubsection{Ziele:} Das Design der App und der Weboberfläche ist entworfen und kann den Entwicklern übermittelt werden.
+\subsubsection{Beschreibung der Arbeit: [Wochen: 6-13]} Erstellung einer visuellen Vorlage für das Aussehen von App und Weboberfläche. 
+
+\begin{enumerate}
+\item [T7.1] visuelle Vorlage für die App (H) (W6, W9) (4 W): \emph{ Alle graphischen Benutzeroberflächen der App werden designed und an Entwickler übermittelt.}
+\item [T7.2] visuelle Vorlage für die Weboberfläche (H) (W10, W13) (4 W) : \emph{ Alle graphischen Benutzeroberflächen der Weboberfläche werden designed und an Entwickler übermittelt.}
+\end{enumerate}
+
+%\newpage
+\begin{landscape}
+\begin{minipage}{\textwidth}
+\begin{landscape}
+\subsection*{Gantt Chart}
+\begin{ganttchart}[hgrid, 
+ vgrid, 
+ bar label font =\small,
+ bar/.append style={fill=red!50, line width=.75pt},
+ y unit chart=0.44cm, x unit=.9cm]{1}{18}
+ \gantttitle{Dezember}{5}
+ \gantttitle{Januar}{5}
+ \gantttitle{Februar}{4}
+ \gantttitle{Maerz}{3} \\
+
+ \ganttbar{T1.1}{1}{1}\\
+ \ganttbar{T1.2}{1}{1}\\
+ \ganttbar{T1.3}{1}{1} \\
+ \ganttbar{T1.4}{1}{17}\\
+ \ganttbar{T1.5}{1}{17}
+ 
+\ganttnewline[thick]
+
+ \ganttbar{T2.1}{2}{3} \\
+ \ganttbar{T2.2}{5}{6}\\
+ \ganttbar{T2.3}{16}{17}\\
+ \ganttbar{T2.4}{16}{17}\\
+ \ganttbar{T2.5}{17}{17}\\
+ \ganttbar{T2.6}{17}{17}
+\ganttnewline[thick]
+
+ \ganttbar{T3.1}{1}{1} \\
+ \ganttbar{T3.2}{2}{3}\\
+ \ganttbar{T3.3}{16}{17}\\
+ \ganttbar{T3.4}{16}{16}\\
+ \ganttbar{T3.5}{16}{16}\\
+ \ganttbar{T3.6}{16}{16}\\
+ \ganttbar{T3.7}{17}{17}\\
+ \ganttbar{T3.8}{17}{17}
+\ganttnewline[thick]
+
+ \ganttbar{T4.1}{2}{3} \\
+ \ganttbar{T4.2}{15}{16}\\
+ \ganttbar{T4.3}{16}{16}\\
+ \ganttbar{T4.4}{16}{16}\\
+ \ganttbar{T4.5}{16}{16}\\
+ \ganttbar{T4.6}{16}{16}\\
+ \ganttbar{T4.7}{17}{17}
+\ganttnewline[thick]
+
+ \ganttbar{T5.1}{17}{17} \\
+ \ganttbar{T5.2}{17}{17}\\
+ \ganttbar{T5.3}{17}{17}\\
+ \ganttbar{T5.4}{17}{17}\\
+ \ganttbar{T5.5}{17}{17}
+\ganttnewline[thick]
+
+ \ganttbar{T6.1}{2}{6}\\
+ \ganttbar{}T6.2{6}{17}\\
+ \ganttbar{T6.3}{7}{8}\\
+ \ganttbar{T6.4}{6}{17}
+\ganttnewline[thick]
+
+ \ganttbar{T7.1}{6}{9}\\
+ \ganttbar{T7.2}{7}{13}
+\ganttnewline[thick]
+\ganttmilestone{Milestones}{2}
+\ganttmilestone{Milestones}{9}
+\ganttmilestone{Milestones}{13}
+\ganttmilestone{Milestones}{4}
+
+\end{ganttchart}
+\end{landscape}
+\end{minipage}
+\end{landscape}
+
+
+\subsection*{Group Allocation Table}
+
+Make up your own...
+
+\end{document}
+
