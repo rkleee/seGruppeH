@@ -48,8 +48,15 @@ Auch das MVC -  Pattern kann zur Implementation der App verwendet werden. Die dr
 
 \chapter{Pipes and Filters}
 Das Pipes and Filters - Pattern benötigt man nicht für die Implementierung des Faithinators. Die Pipes and Filters werden normalerweise verwendet um eingehende Datenströme zu verarbeiten. In unserem Fall wollen wir eingehende Daten wie Registrierungsdaten nur speichern und benötigen keine weitere Verarbeitung. Auch für die Antworten, die die Clients geben wollen wir eigentlich nur in die Datenbank schreiben.
+
 \chapter{Reflection}
 Es wäre sinnvoll das Reflection-Pattern bei der Implementierung des Faithinators zu nutzen. Das Reflection-Pattern ist nützlich um nachträglich noch Dinge zu ändern und das möglichst kostengünstig und effizient. In unserem Fall bietet sich dies an um den Faithinator immer auf dem aktuellen Stand zu halten und nachträglich noch zusätzliche Funktionen einzubauen. Das würde nur theoretisch nach dem  Praktikum passieren.
+\begin{figure}[ht]
+ \includegraphics[width=\textwidth]{./pics/Reflect.png}
+ % Diagramm1e.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=0 0 765 425
+ \caption{Übersicht: Zusammenarbeit der Komponenten}
+ \label{abb:3}
+\end{figure}
 
 \chapter{Layers Pattern}
 Als Beispiel für das Layering typischer Software wird in der Literatur (Buschmann, S. 38) folgender Aufbau genannt:
