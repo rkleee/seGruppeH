@@ -1,0 +1,84 @@
+\documentclass{scrreprt}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\scr@startchapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+%Für deutsche Trennung
+\usepackage[ngerman]{babel}
+%Für UTF8-Codierung, mit Umlauten!
+\usepackage[utf8]{inputenc}
+
+%Für Links, auch innerhalb des Dokuments
+\usepackage{hyperref}
+
+%Einbinden von Grafiken
+\usepackage{graphicx}
+
+\title{Anwenden der Design Patterns auf unseren Faithinator}
+\author{Gruppe H}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\part{Welche Designs eignen sich für unseren Faithinator?}
+
+\chapter{MVC}
+
+Die Models stellen die direkte Schnittstelle zur Datenbank dar und werden ausschließlich über die Controller angesteuert.
+
+Die Views zeigen den Benutzern die Daten in angemessener Weise auf der Benutzeroberfläche an.
+
+Die Controller reagieren auf die Benutzereingaben (in den Views) und leiten gegebenenfalls Änderungen an den Daten an die Models weiter. Die Models führen diese Änderungen dann direkt in der Datenbank aus.
+
+Beispiele für die Anwendung im Faithinator:
+
+\begin{itemize}
+\item Anzeige der Fragen für die Clients und Möglichkeit der Beantwortung
+   \begin{itemize}
+   \item View: Anzeige in geeigneter Form
+   \item Controller: Weitergabe der Antwort an das Model
+   \item Model: Eintragen der Antwort in die Datenbank
+   \end{itemize}
+\item Benutzeroberfläche zur Erstellung von Fragen
+   \begin{itemize}
+   \item View: Anzeige des Formulars zur Definition der Frage durch einen Admin
+   \item Controller: Validierung und Weitergabe der eingegebenen Daten an das Model
+   \item Model: Eintragen der neuen Frage in die Datenbank
+   \end{itemize}
+
+\item Login für die Benutzer
+   \begin{itemize}
+   \item View: Anzeige des Logins mit „Benutzername“, „Passwort“, etc.
+   \item Controller: Validierung und Weitergabe der eingegebenen Daten an das Model
+   \item Model: Abgleich der eingegebenen Daten mit den Daten in der Datenbank                                                                           \end{itemize}
+\end{itemize}
+
+
+
+\chapter{Proxy}
+
+Regelt den Zugriff von verschiedenen Benutzergruppen auf die Daten in der Datenbank.
+
+Konkret:
+
+Clients sehen durch Ihre Zugriffseinschränkungen nur für sie vorgesehene Fragen.
+
+Admins können beispielsweise alle Fragen anschauen und diese auch bearbeiten.
+
+Vorteile:
+\begin{itemize}
+\item Sicherheit (Unveränderbarkeit bestimmter wichtiger Daten (z.B. der Fragen) durch Clients)
+\item Effizienz (Anzeige der gleichen Daten für verschiedene Clients mit gleicher Berechtigungsstufe)
+\item Rechte (siehe oben)
+\end{itemize}
+
+
+\chapter{Forwarder Receiver}
+Für den Chat haben wir kein geeignetes Pattern gefunden, das alle nötigen Funktionen des Chats optimal unterstüzt. Die Chatfunktion kann aber aus unserer Sicht über das Forwarder Reveiver Pattern realisiert werden, da Chats immer eine 1:1 Verbindung zwischen Clients bedeuten, in denen sie Nachrichten und/oder Dateien austauschen können. Denkbar wäre, dass die IPC mithilfe des Servers realisiert wird, der Chats automatisch in der Datenbank protokolliert.
+
+\end{document}
