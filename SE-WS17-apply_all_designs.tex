@@ -1,0 +1,90 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\scr@startchapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+%Für deutsche Trennung
+\usepackage[ngerman]{babel}
+%Für UTF8-Codierung, mit Umlauten!
+\usepackage[utf8]{inputenc}
+
+%Für Links, auch innerhalb des Dokuments
+\usepackage{hyperref}
+
+%Einbinden von Grafiken
+\usepackage{graphicx}
+
+\title{Anwenden der Design Patterns auf unseren Faithinator}
+\author{Gruppe H}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\noindent
+Unser Faithinator hat, grob abstrahiert, folgende Bestandteile: 
+\begin{itemize}
+ \item Datenbank: Die Datenbank enthält sämtliche Daten über die User, die Clients und die Fragen. 
+ \item Code bzw. Logik: Der Code implementiert alle Funktionalitäten der App.
+ \item Grafische Benutzeroberfläche: Sowohl für die App als auch für die Weboberfläche gibt es eine grafische Benutzeroberfläche, die die Funktionalitäten repräsentiert. 
+ \item Chatverbindungen: Die Kommunikation zwischen den Usern findet über Chats statt. 
+ \item Fragen: Die Fragen müssen von den Admins erstellt und ausgewertet und von den Clients beantwortet werden.
+\end{itemize}
+\noindent
+Um diese organisieren und umsetzen zu können, haben wir die folgenden Pattern ausgewählt.
+
+
+\section{Architectual Pattern}
+\subsection{MVC}
+Das ``Model - View - Contoller'' - Pattern können wir für die Grundstruktur des Faithinators benutzen. Die \textbf{Models} stellen die direkte Schnittstelle zur Datenbank dar und werden ausschließlich über die Controller angesteuert.
+Die \textbf{Views} zeigen den Benutzern die Daten in angemessener Weise auf der Benutzeroberfläche an. Es gibt Views für die Fragen, für die Chats und für alle anderen Bestandteile der Applikation. 
+Die \textbf{Controller} reagieren auf die Benutzereingaben und leiten gegebenenfalls Änderungen an den Daten an die Models weiter. Die Models führen diese Änderungen dann direkt in der Datenbank aus.
+\\[1em]
+Beispiele für die Anwendung im Faithinator:
+
+\begin{itemize}
+\item Anzeige der Fragen für die Clients und Möglichkeit der Beantwortung
+   \begin{itemize}
+   \item View: Anzeige in geeigneter Form
+   \item Controller: Weitergabe der Antwort an das Model
+   \item Model: Eintragen der Antwort in die Datenbank
+   \end{itemize}
+\item Benutzeroberfläche zur Erstellung von Fragen
+   \begin{itemize}
+   \item View: Anzeige des Formulars zur Definition der Frage durch einen Admin
+   \item Controller: Validierung und Weitergabe der eingegebenen Daten an das Model
+   \item Model: Eintragen der neuen Frage in die Datenbank
+   \end{itemize}
+\newpage
+\item Login für die Benutzer
+   \begin{itemize}
+   \item View: Anzeige des Logins mit „Benutzername“, „Passwort“, etc.
+   \item Controller: Validierung und Weitergabe der eingegebenen Daten an das Model
+   \item Model: Abgleich der eingegebenen Daten mit den Daten in der Datenbank                                                                           \end{itemize}
+\end{itemize}
+
+
+\section{Design Pattern}
+\subsection{Proxy}
+
+Der Proxy regelt den Zugriff von verschiedenen Benutzergruppen auf die Daten in der Datenbank.
+
+\noindent
+Konkret bedeutet das, dass Clients durch ihre Zugriffseinschränkungen nur für sie vorgesehene Fragen sehen. Admins können beispielsweise alle Fragen anschauen und diese auch bearbeiten.
+\\[1em]
+\noindent
+Vorteile:
+\begin{itemize}
+\item Sicherheit (Unveränderbarkeit bestimmter wichtiger Daten durhc Clients, z.B. der Fragen)
+\item Effizienz (Anzeige der gleichen Daten für verschiedene Clients mit gleicher Berechtigungsstufe)
+\item Rechte (siehe oben)
+\end{itemize}
+
+\subsection{Forwarder Receiver}
+Für den Chat haben wir kein Pattern gefunden, welches alle nötigen Funktionen des Chats optimal unterstüzt. Die Chatfunktion kann aber aus unserer Sicht über das Forwarder Reveiver Pattern realisiert werden. Chats bedeuten immer eine 1:1 Verbindung zwischen Clients, in denen sie Nachrichten und/oder Dateien austauschen können. Denkbar wäre, dass die IPC mithilfe des Servers realisiert wird, der Chats automatisch in der Datenbank protokolliert.
+
+\end{document}
