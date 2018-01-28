@@ -1,0 +1,71 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{geometry}
+%\geometry{a4paper,left=20mm,right=10mm, top=3cm, bottom=5cm} 
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{graphicx} 
+\usepackage{underscore}
+
+%opening
+\title{Agile Software Development}
+\author{Nicole Wingenfeld, Lucas Bambauer, Rebecca Kleeman, Jaqueline Kremer}
+
+\begin{document}
+
+\maketitle
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\section*{Explain why test-first development helps the programmer to develop a better understanding of the system requirements. What are the potential difficulties with test-first development?}
+\begin{itemize}
+ \item[] Es gibt vier Vorteile für die ``Test-First'' Strategie. 
+ \item [] \textbf{Code Coverage:} Zu jedem Codeteilstück gibt es einen zugehörigen Test
+ \item[]\textbf{Regression Testing:}  Ein Regressionstest testet bei jeder Neuerung am Code, ob alles Alte noch funktioniert. Der Regressionstest wächst also mit dem Code mit. 
+ \item[] \textbf{Simplified Debugging:} Wenn ein Test fehlschlägt, weiß man direkt, wo der Fehler liegt. Es muss an dem neuesten Codestück liegen, da vorher alles funktionierte. 
+ \item[] \textbf{System Documentation:} Die Test können als Dokumentation des Codes genutzt werden. 
+ \item[]Kritik: \\ Es ist schwierig Anzuwenden, wenn man keine Erfahrung hat, da man nicht weiß, wie man etwas testen soll, was noch nicht existiert. Außerdem kommt es zu Fehlschlägen, sollten die Unittests nicht atomar sein. Ein weiterer Kritikpunkt ist, dass die Test-First Strategie kein Ersatz für andere Tests (z.B. für Gebrauchstauglichkeit sind Usabilitytest besser geeignet).
+\end{itemize}
+\section*{When would you recommend against the use of an agile method for developing a software system?}
+Für das Entwicklerteam, welches Vorher eine funktionierende Methode hatte, sind agile Ansätze schwierig umzusetzen. Damit Agile Ansätze nämlich irgendetwas besser machen können, sind große Veränderungen notwendig. Sollte sich das Entwicklerteam trotzdem für agile Entwicklung entscheiden und die damit einhergehende Umstellung, ist das noch keine Erfolgsgarantie. Mit vielen Stakeholdern ist es schwierig alle Änderungen umzusetzten. Manche Projekte passen einfach nicht zur agilen Entwicklung. Ein Nachteil, welcher aber auch Vorteil sein kann, ist, dass man eng mit den Kunden und dem Team zusammen arbeiten muss und viele Meetings benötigt. Es ist schwierg das Interesse des Kunden zu erhalten, der in den Prozess mit einbezogen ist
+\\
+Sehr kleine oder vollkommen vertraute Projekte, für die schon perfekt einübte Arbeitsabläufe existieren, eignen sich außerdem weniger gut für agiles Arbeiten.
+\\
+\section*{Compare and contrast the Scrum approach to project management with conventional plan-based approaches, as discussed in Chapter 23 of "Software Engineering" by Ian Sommerville. The comparisons should be based on the effectiveness of each approach for planning the allocation of people to projects, estimating the cost of projects, maintaining team cohesion, and managing changes in project team membership.}
+- 
+\section*{Suggest four reasons why the productivity rate of programmers working as a pair might be
+more than half that of two programmers working individually.}
+\begin{itemize}
+ \item [1] Qualität der Software wird verbessert\\
+ Dies liegt unter anderem am ständigen Codereview und dem sofortigen Feedback des ``Navigators``. 
+ \item [2] Fehler werden früh erkannt\\
+ Vier Augen sehen mehr als zwei. 
+ \item [3] Wissen verbreitet sich im gesamten Team\\
+ Man kann voneinander Lernen. 
+ \item [4] Kommunikation im Team verbessert sich\\
+ Man ist gezwungen miteinander zu kommunizieren.
+\end{itemize}
+$\Rightarrow$ Mehr Spaß an der Arbeit
+\end{document}
