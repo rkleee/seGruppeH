@@ -12,7 +12,7 @@
 
 %opening
 \title{Agile Software Development}
-\author{Nicole Wingenfeld, Lucas Bambauer, Rebecca Kleeman, Jaqueline Kremer}
+\author{Nicole Wingenfeld, Lucas Bambauer, Rebecca Kleemann, Jaqueline Kremer}
 
 \begin{document}
 
@@ -41,31 +41,63 @@
 
 \section*{Explain why test-first development helps the programmer to develop a better understanding of the system requirements. What are the potential difficulties with test-first development?}
 \begin{itemize}
- \item[] Es gibt vier Vorteile für die ``Test-First'' Strategie. 
- \item [] \textbf{Code Coverage:} Zu jedem Codeteilstück gibt es einen zugehörigen Test
+ \item[] Es gibt vier Vorteile für die ,,Test-First'' Strategie. 
+ \item [] \textbf{Code Coverage:} Zu jedem Codeteilstück gibt es einen zugehörigen Test.
  \item[]\textbf{Regression Testing:}  Ein Regressionstest testet bei jeder Neuerung am Code, ob alles Alte noch funktioniert. Der Regressionstest wächst also mit dem Code mit. 
  \item[] \textbf{Simplified Debugging:} Wenn ein Test fehlschlägt, weiß man direkt, wo der Fehler liegt. Es muss an dem neuesten Codestück liegen, da vorher alles funktionierte. 
- \item[] \textbf{System Documentation:} Die Test können als Dokumentation des Codes genutzt werden. 
- \item[]Kritik: \\ Es ist schwierig Anzuwenden, wenn man keine Erfahrung hat, da man nicht weiß, wie man etwas testen soll, was noch nicht existiert. Außerdem kommt es zu Fehlschlägen, sollten die Unittests nicht atomar sein. Ein weiterer Kritikpunkt ist, dass die Test-First Strategie kein Ersatz für andere Tests (z.B. für Gebrauchstauglichkeit sind Usabilitytest besser geeignet).
+ \item[] \textbf{System Documentation:} Die Tests können als Dokumentation des Codes genutzt werden. 
+ \item[]Mögliche Probleme bei dieser Strategie: \\ Es ist schwierig anzuwenden, wenn man keine Erfahrung hat, da man nicht weiß, wie man etwas testen soll, was noch nicht existiert. Außerdem kommt es zu Fehlschlägen, sollten die Unittests nicht atomar sein. Ein weiterer Kritikpunkt ist, dass die Test-First Strategie kein Ersatz für andere Tests ist (z.B. für Gebrauchstauglichkeit sind Usabilitytest besser geeignet).
 \end{itemize}
 \section*{When would you recommend against the use of an agile method for developing a software system?}
-Für das Entwicklerteam, welches Vorher eine funktionierende Methode hatte, sind agile Ansätze schwierig umzusetzen. Damit Agile Ansätze nämlich irgendetwas besser machen können, sind große Veränderungen notwendig. Sollte sich das Entwicklerteam trotzdem für agile Entwicklung entscheiden und die damit einhergehende Umstellung, ist das noch keine Erfolgsgarantie. Mit vielen Stakeholdern ist es schwierig alle Änderungen umzusetzten. Manche Projekte passen einfach nicht zur agilen Entwicklung. Ein Nachteil, welcher aber auch Vorteil sein kann, ist, dass man eng mit den Kunden und dem Team zusammen arbeiten muss und viele Meetings benötigt. Es ist schwierg das Interesse des Kunden zu erhalten, der in den Prozess mit einbezogen ist
-\\
-Sehr kleine oder vollkommen vertraute Projekte, für die schon perfekt einübte Arbeitsabläufe existieren, eignen sich außerdem weniger gut für agiles Arbeiten.
-\\
+\begin{itemize}
+ \item[] Für Entwicklerteams, die vorher eine herkömmliche Methoden benutzt haben, sind agile Ansätze schwierig umzusetzen. Damit agile Ansätze gut funktionieren können, sind große Veränderungen notwendig. Sollte sich das Entwicklerteam trotzdem für agile Entwicklung entscheiden und die damit einhergehende Umstellung, ist das noch keine Erfolgsgarantie. Mit vielen Stakeholdern ist es schwierig alle Änderungen umzusetzten. Bestimmte Projekte passen einfach nicht zur agilen Entwicklung. Ein Nachteil, welcher aber auch ein Vorteil sein kann, ist, dass man eng mit den Kunden und auch innerhalb des Teams zusammen arbeiten muss und somit viele Meetings entstehen. Es ist schwierg das Interesse des Kunden zu erhalten, der in den Prozess mit einbezogen ist.
+ \item[] Beispielsweise eignen sich sehr kleine oder vollkommen vertraute Projekte, für die schon perfekt einübte Arbeitsabläufe existieren, weniger gut für agiles Arbeiten.
+ \item[] Für große Entwicklerteams (bzw. große Projekte) mit oft wechselnder und/oder geografisch verteilter Besetzung ist es nahezu unmöglich, alle Entwickler in die Prozesse der agilen Software-Entwicklung einzubeziehen. Da dies essenziell für den agilen Ansatz ist, sind hier kleinere Teams, die im gleichen Haus arbeiten im Vorteil.
+\end{itemize}
 \section*{Compare and contrast the Scrum approach to project management with conventional plan-based approaches, as discussed in Chapter 23 of "Software Engineering" by Ian Sommerville. The comparisons should be based on the effectiveness of each approach for planning the allocation of people to projects, estimating the cost of projects, maintaining team cohesion, and managing changes in project team membership.}
-- 
+
+\begin{itemize}
+ \item[] \textbf{Generelle Unterschiede:}
+ \smallskip \\
+ Bei plangetriebenen Entwicklungsmethoden wird das Projekt im Vorfeld detailliert durchgeplant (Wer arbeitet wann wieviele Stunden am Projekt? Welche Meilensteine gibt es? Welche Hardware und andere Ressourcen werden benötigt? Fahrtkosten? Mietkosten? ...). Daher wird bei der plangetriebenen Entwicklung bereits vor dem eigentlichen Projektstart alles festgelegt.
+ \smallskip \\
+ Bei agilen Entwicklungsmethoden werden potentielle Probleme von plangetriebenen Methoden berücksichtigt und beseitigt. Beispielsweise werden anfängliche Entscheidungen beim plangetriebenen Ansatz häufig wieder verworfen, was später zu einem erhöhten Arbeitsaufwand führt. Der agile Ansatz sieht vor, solche Entscheidungen erst im laufenden Projektbetrieb zu treffen. Somit können im Entwicklungsprozess wechselnde Anforderungen des Kunden berücksichtigt werden
+ 
+ \item[] \textbf{Unterschiede bei der Aufteilung der Arbeit auf Mitarbeiter:}
+ \smallskip \\
+ Plangetrieben: Die Aufteilung der Mitarbeiter ist hierbei schon beim Projektstart fix. Der Projektleiter legt fest, wer wann woran arbeitet (Gantt-Charts).
+ \smallskip \\
+ Agil: Die Aufteilung der Mitarbeiter ist im laufenden Projektbetrieb variabel bzw. anpassbar. Jeder Mitarbeiter entscheidet selbst, welche Story er implementiert. Vorher wurde vom gesamten Team gemeinsam ein Ranking für die Implementierungsdauer dieser Stories erstellt.
+ 
+ \item[] \textbf{Unterschiede bei der Berechnung von Projektkosten:}
+ \smallskip \\
+ Plangetrieben: Die Kostenberechnung ist vorausschauend und gut (vor dem eigentlichen Projektstart) planbar. Im Projektverlauf auftretende Anforderungsänderungen des Kunden können sich allerdings rückwirkend auf die berechneten Kosten auswirken.
+ \smallskip \\
+ Agil: Die anfängliche Kostenberechnung ist deutlich schwieriger als bei plangetriebenen Methoden. Üblicherweise werden erstmal ein paar Stories implementiert, anhand derer zusammen mit dem Kunden ermittelt werden kann, wie lange das Projekt dauern wird.
+ 
+ \item[] \textbf{Unterschiede beim Team-Zusammenhalt:}
+  \smallskip \\
+ Plangetrieben: Jeder Entwickler hat fest zugewiesene Tasks, die er in einem bestimmten Zeitraum zu erledigen hat. Somit ist bereits alles geregelt und es besteht kaum Kommunikationsbedarf innerhalb des Teams. Daher herrscht ein eher geringer Team-Zusammenhalt.
+ \smallskip \\
+ Agil: Alle Entwickler wissen jederzeit, woran alle anderen Entwickler arbeiten. Dadurch können Abhängigkeiten zwischen Stories effizient ermittelt und berücksichtigt werden. Es wird außerdem insgesamt viel kommuniziert. Dadurch: Hoher Team-Zusammenhalt.
+ 
+ \item[] \textbf{Unterschiede bei personellen Veränderungen im Projektteam:}
+  \smallskip \\
+ Plangetrieben: Personelle Ausfälle wirken sich hier deutlich auf den Projektverlauf aus. Bestehen beispielsweise Abhängigkeiten zwischen Tasks, kann sich durch einen personellen Ausfall im schlimmsten Fall die gesamte Projektdauer um die Dauer des Ausfalls verlängern.
+ \smallskip \\
+ Agil: Personelle Veränderungen im Projektteam können in einem bestimmten Rahmen gut verkraftet werden (wenn sich die halbe Belegschaft verflüchtigt, ist das auch hier schwierig). Da jeder Entwickler genau weiß, welche Story sich die betreffende Person herausgesucht hat, kann der Ausfall durch eine Neuverteilung recht gut kompensiert werden.
+ 
+\end{itemize}
+
+
+
 \section*{Suggest four reasons why the productivity rate of programmers working as a pair might be
 more than half that of two programmers working individually.}
-\begin{itemize}
- \item [1] Qualität der Software wird verbessert\\
- Dies liegt unter anderem am ständigen Codereview und dem sofortigen Feedback des ``Navigators``. 
- \item [2] Fehler werden früh erkannt\\
- Vier Augen sehen mehr als zwei. 
- \item [3] Wissen verbreitet sich im gesamten Team\\
- Man kann voneinander Lernen. 
- \item [4] Kommunikation im Team verbessert sich\\
- Man ist gezwungen miteinander zu kommunizieren.
-\end{itemize}
-$\Rightarrow$ Mehr Spaß an der Arbeit
+\begin{enumerate}
+ \item Produktivitätsverlust durch gegenseitiges Feedback, aber zeitleich Verbesserung der Software-Qualität. Dies liegt unter anderem am ständigen Codereview und dem sofortigen Feedback des ,,Navigators''. 
+ \item Verlieren in Details. Fehler werden früh erkannt (,,4 Augen sehen mehr als zwei''). Dadurch sieht bzw. diskutiert man oft aber auch über Fehler, die keine sind.
+ \item Gegenseitiges Lernen wird hierdurch gefördert. Entsprechend müssen aber auch Zusammenhänge gegenseitig erklärt und erläutert werden, was wiederum einen Zeitverlust bedeutet.
+ \item Abrutschen in Off-Topic Themen. Z.B. wie verbringt man die Mittagspause, wie war das Wochenende, ...
+\end{enumerate}
+
 \end{document}
